@@ -105,7 +105,7 @@ export default function Page() {
 
           <div className="flex items-center gap-2 whitespace-nowrap">
             <CalendarDays size={16} className="text-gray-400" />
-            <span>08 July 2026</span>
+            <span>08-10 July 2026</span>
           </div>
 
         </div>
