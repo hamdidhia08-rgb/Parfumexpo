@@ -16,6 +16,7 @@ import ScrollToTopButton from "@/Components/ScrollToTopButton";
 import WhatsappButtons from "@/Components/WhatsappButtons";
 import Marquee from "@/Components/About/Marquee";
 import About from "@/Components/About/About";
+import TeamSection from "@/Components/Team/TeamSection";
 
 export default function Home() {
 
@@ -71,7 +72,7 @@ export default function Home() {
        
               {/* EVENT */}
         <EventSection />
-
+        <TeamSection/>
 
 
         <ScrollToTopButton/>
