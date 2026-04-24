@@ -1,84 +1,115 @@
-'use client';
+"use client";
 
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useEffect, useState } from "react";
+import { Oswald } from "next/font/google";
+import { MapPin, CalendarDays } from "lucide-react";
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
-import AboutEventGrid from "@/Components/About/AboutEventGrid";
-import AboutSection from "@/Components/About/AboutSection";
-import EventSection from "@/Components/About/EventSection";
-import RegisterCards from "@/Components/Card/RegisterCards";
-import BrandCarousel from "@/Components/carousel/carousel";
-import CoreFeatures from "@/Components/Feature/CoreFeatures";
-import Hero from "@/Components/Hero/Hero";
-import Navbar from "@/Components/Navbar/Nav";
-import ScrollToTopButton from "@/Components/ScrollToTopButton";
-import WhatsappButtons from "@/Components/WhatsappButtons";
-import Marquee from "@/Components/About/Marquee";
-import About from "@/Components/About/About";
-import TeamSection from "@/Components/Team/TeamSection";
+export default function Page() {
+  const targetDate = new Date("2026-12-01T00:00:00").getTime();
 
-export default function Home() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
-    AOS.init({
-      duration: 500,
-      easing: "ease-out-cubic",
-      once: true,
-      offset: 80,
-    });
-  }, []);
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) return;
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((distance / 1000 / 60) % 60),
+        seconds: Math.floor((distance / 1000) % 60),
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [targetDate]);
+
+  const TimeBox = ({ value, label }: any) => (
+    <div className="flex flex-col items-center bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-4 shadow-lg">
+      <span className="text-4xl md:text-5xl font-bold text-yellow-400">
+        {value}
+      </span>
+      <span className="text-xs tracking-widest text-gray-300 mt-1 uppercase">
+        {label}
+      </span>
+    </div>
+  );
 
   return (
-    <>
-      <Navbar />
-
-      {/* HERO */}
-
-        <Hero />
-        <About/>
-<br /><br />
-      {/* BRANDS */}
-      <div data-aos="fade-up" data-aos-delay="100">
-        <BrandCarousel />
+    <section
+      className={`relative w-full min-h-screen flex items-center justify-center ${oswald.className}`}
+    >
+      {/* BACKGROUND IMAGE */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/comming.png" // 🔥 change avec ton image
+          alt="Perfume Expo"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
+{/* CONTENT */}
+<div className="relative z-10 text-center px-4 sm:px-6 max-w-6xl mx-auto">
 
-      {/* TITLE */}
-      <div 
-        className="relative text-center mt-12 mb-12"
-        data-aos="fade-up"
-        data-aos-delay="150"
-      >
-     
+  {/* TOP TEXT */}
+  <p className="text-gray-400 tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">
+    Our New Website
+  </p>
 
-        <h2 className="text-4xl md:text-5xl font-semibold mt-4 leading-tight">
-          Core features that power our <br />
-          <span className="text-[#C9A227] drop-shadow-[0_0_20px_rgba(201,162,39,0.4)]">
-            exceptional services
-          </span>
-        </h2>
-      </div>
+  {/* MAIN TITLE */}
+  <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[120px] font-bold text-white mb-6 uppercase leading-[1.05]">
+    Coming Soon
+  </h1>
 
-      {/* CARDS */}
-      <div data-aos="fade-up" data-aos-delay="200">
-        <RegisterCards />
-      </div>
+  {/* DESCRIPTION */}
+  <p className="text-gray-300 text-sm sm:text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+    A new era of luxury fragrance begins. Experience exclusive scents,
+    elite brands, and unforgettable moments at the most prestigious perfume exhibition.
+  </p>
 
-      <br /><br /><br /><br />
-      
-      {/* CORE FEATURES */}
-    
-        <CoreFeatures />
-       
-              {/* EVENT */}
-        <EventSection />
-        <TeamSection/>
+  {/* EVENT INFO CLEAN */}
+  <div className="flex items-center justify-center gap-4 sm:gap-6 mb-12 text-gray-300 text-sm sm:text-base">
 
+    {/* LOCATION */}
+    <div className="flex items-center gap-2 whitespace-nowrap">
+      <MapPin size={16} className="text-gray-400" />
+      <span>WOW Hotel Istanbul</span>
+    </div>
 
-        <ScrollToTopButton/>
-        <WhatsappButtons/>
+    {/* DOT SEPARATOR */}
+    <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
 
+    {/* DATE */}
+    <div className="flex items-center gap-2 whitespace-nowrap">
+      <CalendarDays size={16} className="text-gray-400" />
+      <span>08 July 2026</span>
+    </div>
 
-    </>
+  </div>
+
+  {/* COUNTDOWN */}
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-10">
+    <TimeBox value={timeLeft.days} label="Days" />
+    <TimeBox value={timeLeft.hours} label="Hours" />
+    <TimeBox value={timeLeft.minutes} label="Minutes" />
+    <TimeBox value={timeLeft.seconds} label="Seconds" />
+  </div>
+
+</div>
+      {/* Glow effect */}
+      <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-yellow-400/10 to-transparent blur-2xl"></div>
+    </section>
   );
 }
