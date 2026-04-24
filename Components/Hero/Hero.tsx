@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Play } from 'lucide-react';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
-import Countdown from './Countdown';
+import Countdown from '@/Components/Hero/Countdown';
+import Marquee from '../About/Marquee';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,11 +25,11 @@ const Hero = () => {
         className={`absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-[7000ms] ease-out pointer-events-none
         ${isZoomed ? 'scale-100' : 'scale-110'}`}
         style={{
-          backgroundImage: "url('/images/Parfum.png')",
+          backgroundImage: "url('/images/bg/Parfum.png')",
         }}
       >
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-[#0B0B0B]"></div>
+        <div className="absolute inset-0 "></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-[#0B0B0B]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,162,39,0.08),transparent_55%)]"></div>
       </div>
 
@@ -86,53 +87,63 @@ const Hero = () => {
           Discover a refined fragrance exhibition where elegance meets creativity—explore exclusive scents and meet world-class perfumers.
         </p>
 
-    {/* BUTTONS */}
+{/* BUTTONS */}
 <div
   className={`flex flex-row items-center justify-center gap-3 md:gap-6 mb-6 md:mb-20 transition-all duration-1000 delay-1000 ${
     isZoomed ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
   }`}
 >
-          
-          {/* PRIMARY BUTTON */}
-          <button className="bg-[#C9A227] hover:bg-[#E0B93B] text-black px-6 py-2.5 md:px-9 md:py-3 rounded-full font-bold text-[12px] md:text-[15px] transition-all shadow-[0_10px_40px_rgba(201,162,39,0.25)] active:scale-95 whitespace-nowrap">
-            Explore Exhibition
-          </button>
 
-          {/* VIDEO BUTTON */}
-          <button className="flex items-center gap-2 md:gap-4 group cursor-pointer">
+  {/* PRIMARY BUTTON (inchangé propre) */}
+  <button className="bg-[#C9A227] hover:bg-[#E0B93B] text-black px-6 py-2.5 md:px-9 md:py-3 rounded-full font-bold text-[12px] md:text-[15px] transition-all shadow-[0_10px_40px_rgba(201,162,39,0.25)] active:scale-95 whitespace-nowrap">
+    Explore Exhibition
+  </button>
 
-            <div className="relative w-9 h-9 md:w-12 md:h-12 flex items-center justify-center">
+  {/* VIDEO BUTTON */}
+  <button className="flex items-center gap-2 md:gap-4 group cursor-pointer">
+<div className="relative w-9 h-9 md:w-12 md:h-12 flex items-center justify-center">
 
-              <span className="absolute inset-0 rounded-full bg-[#C9A227]/30 animate-ping opacity-60"></span>
-              <span className="absolute inset-0 rounded-full bg-[#C9A227]/20 blur-md group-hover:scale-125 transition-transform duration-500"></span>
-              <span className="absolute inset-0 rounded-full border border-white/20 group-hover:scale-110 transition-transform duration-500"></span>
+  {/* Glow glass animé (remplace ping) */}
+  <span className="absolute inset-0 rounded-full 
+    bg-white/10 backdrop-blur-xl 
+    animate-glow-ring"></span>
 
-              <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#C9A227] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Play className="w-3 h-3 md:w-4 md:h-4 ml-0.5 text-black" />
-              </div>
-            </div>
+  {/* Halo doux */}
+  <span className="absolute inset-0 rounded-full 
+    bg-[#C9A227]/20 blur-md 
+    animate-glow-soft"></span>
 
-            <span className="font-semibold text-[12px] md:text-[15px] text-white group-hover:text-[#C9A227] transition-colors whitespace-nowrap">
-              Watch Experience
-            </span>
+  {/* Border glass */}
+  <span className="absolute inset-0 rounded-full 
+    border border-white/20"></span>
 
-          </button>
-        </div>
+  {/* Inner button */}
+  <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full 
+    bg-white/10 backdrop-blur-xl border border-white/20
+    flex items-center justify-center 
+    shadow-[0_8px_30px_rgba(255,255,255,0.08)]
+    transition-all duration-300 hover:scale-110">
+
+    <Play className="w-3 h-3 md:w-4 md:h-4 ml-0.5 text-white" />
+
+  </div>
+
+</div>
+
+    <span className="font-semibold text-[12px] md:text-[15px] text-white group-hover:text-[#C9A227] transition-colors whitespace-nowrap">
+      Watch Experience
+    </span>
+
+  </button>
+
+</div>
 
         {/* COUNTDOWN */}
         <Countdown />
       </div>
-
-      {/* WAVE */}
+      {/* MARQUEE */}
       <div className="absolute bottom-0 left-0 w-full z-20">
-        <Image
-          src="/images/dhia.svg"
-          alt="Bottom shape"
-          width={1920}
-          height={200}
-          className="w-full object-cover"
-          priority
-        />
+        <Marquee/>
       </div>
     </section>
   );

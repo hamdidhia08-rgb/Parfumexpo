@@ -57,3 +57,87 @@ body {
 .animate-float {
   animation: float linear infinite;
 }
+
+@keyframes floatY {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes floatX {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(30px); }
+  100% { transform: translateX(0px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.2; filter: blur(2px); }
+  50% { opacity: 0.6; filter: blur(4px); }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 15s linear infinite;
+}
+@keyframes glowRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.1;
+  }
+}
+
+.animate-glow-ring {
+  animation: glowRing 2.5s ease-in-out infinite;
+}
+
+@keyframes glowSoft {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.15);
+  }
+}
+
+.animate-glow-soft {
+  animation: glowSoft 3s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}

@@ -3,7 +3,10 @@
 import React, { useState } from "react";
 import { Calendar, MapPin } from "lucide-react";
 import FloatingParticles from "./FloatingParticles";
-
+import Image from 'next/image';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 // Interface pour sécuriser le typage
 interface EventItem {
   id: number;
@@ -12,6 +15,7 @@ interface EventItem {
   date: string;
   location: string;
   image: string;
+  time: string;
 }
 
 const scheduleData: Record<string, EventItem[]> = {
@@ -21,6 +25,7 @@ const scheduleData: Record<string, EventItem[]> = {
       title: "Creative Entrepreneurship Forum",
       desc: "Executives and innovators discuss digital transformation, leadership models, and future market opportunities.",
       date: "18 Aug' 2024",
+      time: "9:00 AM - 5:30 PM",
       location: "Sterling Conference Hall",
       image: "/images/exemple1.jpg",
     },
@@ -29,25 +34,20 @@ const scheduleData: Record<string, EventItem[]> = {
       title: "Luxury Brand Strategy Summit",
       desc: "Learn how premium brands create strong identity, trust, and long-term customer loyalty worldwide.",
       date: "18 Aug' 2024",
+      time: "10:00 AM - 4:00 PM",
       location: "Royal Business Lounge",
-      image: "/images/exemple1.jpg",
+      image: "/images/2151623430_copy.webp",
     },
     {
       id: 3,
       title: "Global Investment Networking",
       desc: "Meet investors, founders, and business leaders looking for the next generation of innovation.",
       date: "18 Aug' 2024",
+      time: "11:00 AM - 6:00 PM",
       location: "Skyline Meeting Center",
-      image: "/images/exemple1.jpg",
-    },
-    {
-      id: 4,
-      title: "Digital Commerce Excellence",
-      desc: "Discover strategies to scale e-commerce brands through automation and premium customer experience.",
-      date: "18 Aug' 2024",
-      location: "Prestige Expo Room",
-      image: "/images/exemple1.jpg",
-    },
+      image: "/images/interactive-process-image-1.jpg",
+    }
+
   ],
 
   "Day 02": [
@@ -56,30 +56,34 @@ const scheduleData: Record<string, EventItem[]> = {
       title: "Future Marketing Trends",
       desc: "Discover luxury marketing strategies for modern audiences and digital platforms.",
       date: "19 Aug' 2024",
+      time: "9:30 AM - 3:30 PM",
       location: "Premium Studio",
-      image: "/images/exemple1.jpg",
+      image: "/images/interactive-process-image-2.jpg",
     },
     {
       id: 6,
       title: "Innovation & Tech Summit",
       desc: "Explore future technologies transforming business operations and customer engagement.",
       date: "19 Aug' 2024",
+      time: "10:00 AM - 5:00 PM",
       location: "Main Grand Hall",
-      image: "/images/exemple1.jpg",
+      image: "/images/test2.png",
     },
     {
       id: 7,
       title: "AI Business Acceleration",
       desc: "How artificial intelligence increases productivity, growth, and smarter decisions.",
       date: "19 Aug' 2024",
+      time: "11:30 AM - 6:30 PM",
       location: "Tech Vision Arena",
-      image: "/images/exemple1.jpg",
+      image: "/images/speak2.png",
     },
     {
       id: 8,
       title: "Startup Growth Conference",
       desc: "Successful founders share secrets behind scaling startups into global companies.",
       date: "19 Aug' 2024",
+      time: "2:00 PM - 8:00 PM",
       location: "NextGen Center",
       image: "/images/exemple1.jpg",
     }
@@ -91,6 +95,7 @@ const scheduleData: Record<string, EventItem[]> = {
       title: "Future of Digital Branding",
       desc: "Build premium brands with modern storytelling and elegant digital identity.",
       date: "20 Aug' 2024",
+      time: "9:00 AM - 2:00 PM",
       location: "Luxury Hub Center",
       image: "/images/exemple1.jpg",
     },
@@ -99,6 +104,7 @@ const scheduleData: Record<string, EventItem[]> = {
       title: "Creative Media Experience",
       desc: "Immersive content creation, visuals, and campaigns for luxury industries.",
       date: "20 Aug' 2024",
+      time: "10:30 AM - 4:30 PM",
       location: "Vision Hall",
       image: "/images/exemple1.jpg",
     },
@@ -107,6 +113,7 @@ const scheduleData: Record<string, EventItem[]> = {
       title: "High-End Customer Journey",
       desc: "Master customer satisfaction through refined service and premium experiences.",
       date: "20 Aug' 2024",
+      time: "12:00 PM - 6:00 PM",
       location: "Elite Service Room",
       image: "/images/exemple1.jpg",
     },
@@ -115,6 +122,7 @@ const scheduleData: Record<string, EventItem[]> = {
       title: "Global Networking Gala",
       desc: "Meet elite professionals, CEOs, creators, and international decision makers.",
       date: "20 Aug' 2024",
+      time: "6:00 PM - 11:00 PM",
       location: "Golden Palace Venue",
       image: "/images/exemple1.jpg",
     },
@@ -123,6 +131,7 @@ const scheduleData: Record<string, EventItem[]> = {
       title: "Closing Vision Ceremony",
       desc: "Celebrating innovation, success stories, and future partnerships worldwide.",
       date: "20 Aug' 2024",
+      time: "8:00 PM - 12:00 AM",
       location: "Imperial Grand Stage",
       image: "/images/exemple1.jpg",
     },
@@ -131,9 +140,22 @@ const scheduleData: Record<string, EventItem[]> = {
 
 export default function CoreFeatures() {
   const [activeTab, setActiveTab] = useState<keyof typeof scheduleData>("Day 01");
+useEffect(() => {
+  AOS.init({
+    duration: 500,
+    once: true,
+  });
 
+  AOS.refresh(); // 🔥 important avec React dynamique
+}, []);
   return (
-    <section className="relative py-28 text-white font-(--font-inter-tight) overflow-hidden bg-[#070A12]">
+    <>
+
+<section
+  className="relative pt-25 py-28 text-white font-(--font-inter-tight) overflow-hidden bg-contain bg-center"
+  style={{ backgroundImage: "url('/images/bg/oi.jpg')" }}
+>
+
       <FloatingParticles />
       
       {/* BACKGROUND GLOWS (On garde tes lueurs dorées) */}
@@ -158,32 +180,34 @@ export default function CoreFeatures() {
 
       <div className="relative max-w-6xl mx-auto px-6">
         
-        {/* TABS (Jours en haut - Style Jaune/Doré) */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white/5 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
-            {Object.keys(scheduleData).map((day) => (
-              <button
-                key={day}
-                onClick={() => setActiveTab(day as keyof typeof scheduleData)}
-                className={`px-8 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  activeTab === day
-                    ? "bg-[#C9A227] text-[#070A12] shadow-[0_0_20px_rgba(201,162,39,0.4)]"
-                    : "text-white/60 hover:text-white"
-                }`}
-              >
-                {day}
-              </button>
-            ))}
-          </div>
-        </div>
+<div className="flex justify-center mb-12">
+  <div className="inline-flex bg-white/10 p-1.5 rounded-full border border-white/20 backdrop-blur-xl shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+    
+    {Object.keys(scheduleData).map((day) => (
+      <button
+        key={day}
+        onClick={() => setActiveTab(day as keyof typeof scheduleData)}
+        className={`px-8 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+          activeTab === day
+            ? "bg-white text-black shadow-[0_4px_20px_rgba(255,255,255,0.15)]"
+            : "text-white/60 hover:text-white hover:bg-white/10"
+        }`}
+      >
+        {day}
+      </button>
+    ))}
+
+  </div>
+</div>
 
         {/* CARDS (Format horizontal de l'image) */}
         <div className="space-y-6">
-          {scheduleData[activeTab].map((event) => (
-            <div
-              key={event.id}
-              className="group relative bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-xl flex flex-col md:flex-row items-center p-4 md:p-5 transition-all duration-500 hover:border-[#C9A227]/40 hover:shadow-[0_0_40px_rgba(201,162,39,0.15)]"
-            >
+      {scheduleData[activeTab].map((event, index) => (
+                <div
+                  key={event.id}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+className="group relative bg-white/10 border border-white/20 rounded-3xl overflow-hidden backdrop-blur-2xl flex flex-col md:flex-row items-center p-4 md:p-5 transition-all duration-500 hover:border-white/30 hover:bg-white/15"                >
               {/* IMAGE (Rectangle arrondi à gauche) */}
               <div className="w-full md:w-72 h-48 relative rounded-2xl overflow-hidden shrink-0">
                 <img
@@ -195,14 +219,16 @@ export default function CoreFeatures() {
 
               {/* CONTENU TEXTE */}
               <div className="grow px-4 md:px-8 mt-6 md:mt-0">
-                <div className="flex flex-wrap gap-5 mb-4 text-xs font-medium uppercase tracking-wider text-white/50">
-                  <div className="flex items-center gap-2">
+                <div className="flex flex-wrap gap-5 mb-4 text-sm text-white/70">
+                 <div className="flex items-center gap-2">
                     <Calendar size={16} className="text-[#C9A227]" />
-                    <span>Date: <span className="text-white">{event.date}</span></span>
+                    <span className="text-[#fff] font-semibold tracking-wide">
+                      {event.time}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin size={16} className="text-[#C9A227]" />
-                    <span>Location: <span className="text-white">{event.location}</span></span>
+                    <span>Location : <span className="text-white">{event.location}</span></span>
                   </div>
                 </div>
 
@@ -248,5 +274,6 @@ export default function CoreFeatures() {
         </div>
       </div>
     </section>
+    </>
   );
 }
