@@ -11,7 +11,7 @@ const inter = Inter({
 export default function TeamSection() {
   const team = [
     {
-      name: "Semire arslan",
+      name: "Semire şarhan",
       role: "General Manager",
       image: "/images/team/img1.jpeg",
       facebook: "#",
