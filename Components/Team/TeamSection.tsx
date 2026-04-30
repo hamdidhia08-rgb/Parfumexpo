@@ -20,8 +20,8 @@ export default function TeamSection() {
       phone: "21612345678",
     },
     {
-      name: "Sahar arslan",
-      role: "General Manager of Ask istanbul",
+      name: "Seher arslan",
+      role: "General Manager of Aşk İstanbul",
       image: "/images/team/img2.jpeg",
       facebook: "#",
       instagram: "#",
