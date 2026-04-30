@@ -21,7 +21,7 @@ export default function TeamSection() {
     },
     {
       name: "Sahar arslan",
-      role: "Sales Manager",
+      role: "General Manager of Ask istanbul",
       image: "/images/team/img2.jpeg",
       facebook: "#",
       instagram: "#",
@@ -30,7 +30,7 @@ export default function TeamSection() {
     },
     {
       name: "Abdulkadir Şarhan",
-      role: "Operations Manager",
+      role: "Operations Director",
       image: "/images/team/img4.jpeg",
       facebook: "#",
       instagram: "#",
