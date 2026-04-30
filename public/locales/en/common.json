@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "exhibitors": "Exhibitors",
+    "blog": "Blog",
+    "contact": "Contact",
+    "join": "Join the Expo",
+     "menu": "Menu",
+     "Participation":"Participation"
+  },
+    "brand": {
+    "name": "Parfum Expo"
+  },
+    "hero": {
+    "badge": "Luxury Fragrance Experience",
+    "title1": "Discover the Art of",
+    "title2": "Luxury",
+    "title3": "Perfumes",
+    "desc": "Discover a refined fragrance exhibition where elegance meets creativity—explore exclusive scents and meet world-class perfumers.",
+    "cta": "Join Us Now",
+    "watch": "Watch Experience"
+  },
+    "countdown": {
+    "top": "Upcoming Fragrance - Don't Miss Out",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+    "marquee": {
+    "title": "ISTANBUL PERFUME EXPO 2026",
+    "exp": "LUXURY FRAGRANCE EXPERIENCE",
+    "perfumers": "WORLD CLASS PERFUMERS",
+    "collection": "EXCLUSIVE SCENT COLLECTIONS"
+  },
+  "about": {
+  "badge": "Perfume Exhibition",
+  "title1": "Discover the World of",
+  "title2": "Luxury Fragrance",
+  "desc": "After more than 20 years, the perfume exhibition returns to Istanbul, bringing together over 90 international brands, experts, and enthusiasts in a unique event celebrating luxury, innovation, and global fragrance culture.",
+  "cta": "Explore Exhibition",
+  "contact": "Contact Us",
+  "attendees": "Global Visitors",
+  "card1": {
+    "title": "International Brands",
+    "desc": "Over 90 exhibitors showcasing exclusive perfumes and latest creations."
+    },
+  "card2": {
+    "title": "Unique Experiences",
+    "desc": "Enjoy workshops, perfume creation, and interactive fragrance activities."
+  }
+}
+}

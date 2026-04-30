@@ -142,7 +142,7 @@ const navLinks = [
       </div>
 
       <span className="text-2xl font-bold text-slate-900 tracking-tight">
-        Parfume Expo<span className="text-[#C9A227]">.</span>
+        Parfum Expo<span className="text-[#C9A227]">.</span>
       </span>
     </Link>
 

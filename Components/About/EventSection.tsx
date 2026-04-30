@@ -6,7 +6,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Check, Sparkles, Building2, Users, CalendarCheck2 } from "lucide-react";
+import { Inter } from "next/font/google";
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 const interTight = Inter_Tight({
   subsets: ['latin'],
   weight: ['400', '600', '700', '800'],
@@ -24,7 +29,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="w-full bg-white  border-black/10">
+    <section className={`${inter.className}w-full bg-white  border-black/10`}>
 
       {/* SECTION 1 */}
       <div className="grid grid-cols-1 md:grid-cols-2 min-h-[600px]">
@@ -34,24 +39,33 @@ export default function HeroSection() {
   data-aos="fade-up"
 >
   <div className="max-w-xl">
+    
+    {/* LABEL */}
     <span className="text-xs tracking-[0.25em] uppercase text-black font-semibold">
       PERFUME EXPO
     </span>
 
+    {/* TITLE */}
     <h1 className={`${interTight.className} mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-[#C9A227]`}>
-    The Art of Fragrance in Istanbul
+      The Art of Fragrance in Istanbul
     </h1>
 
-    <p className="mt-6 text-black text-base leading-relaxed max-w-2xl font-light">
-      In the heart of Istanbul, where East meets West, discover a world of luxury fragrances and timeless scents. This exclusive exhibition brings together iconic perfume houses, niche creators, and scent enthusiasts to celebrate elegance, creativity, and the power of olfactory art.
+    {/* DESCRIPTION */}
+    <p className={`${interTight.className} mt-6 text-black text-base leading-relaxed max-w-2xl font-light`}>
+      The Fragrance Expo returns to Istanbul after more than 20 years, bringing together perfume creators, brands, and experts from around the world. With its strategic location and global importance, Istanbul offers the perfect environment for innovation, business, and luxury experiences. More than 90 exhibitors and sponsors will showcase the latest trends in perfumery, creating a unique event that blends elegance, creativity, and networking opportunities.
+    </p>
+
+    {/* ORGANIZER TEXT */}
+    <p className={`${interTight.className} mt-4 text-black/70 text-sm leading-relaxed max-w-2xl`}>
+      The event is organized by <span className="font-semibold text-black">Aşk Istanbul</span>, a leading company in international exhibition management, under the supervision of business leader <span className="font-semibold text-black">SEMIRE SARHAN</span>.
     </p>
 
     {/* TICKS */}
-    <div className="mt-6 space-y-3">
+    <div className={`${interTight.className} mt-6 space-y-3`}>
       {[
-        "Luxury and niche perfume brands",
-        "International fragrance creators",
-        "Exclusive scent discoveries"
+        "Global gathering of perfume brands and experts",
+        "More than 90 international exhibitors",
+        "July 8 – 10, 2026 in Istanbul"
       ].map((item, i) => (
         <div 
           key={i} 
@@ -66,6 +80,7 @@ export default function HeroSection() {
         </div>
       ))}
     </div>
+
   </div>
 </div>
 
@@ -108,41 +123,45 @@ export default function HeroSection() {
   data-aos-delay="100"
 >
   <div className="max-w-xl">
+
+    {/* LOCATION */}
     <span className="text-xs tracking-[0.25em] uppercase text-black font-semibold">
       WOW HOTEL ISTANBUL
     </span>
 
+    {/* TITLE */}
     <h1 className={`${interTight.className} mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-[#C9A227]`}>
-      Istanbul Luxury Fragrance Expo
+      The Fragrance Expo in Istanbul
     </h1>
 
-    <p className="mt-6 text-black text-base leading-relaxed max-w-2xl font-light">
-      Experience a unique perfume exhibition at WOW Hotel Istanbul, where luxury, elegance, and creativity come together. Discover exclusive scents, meet international perfume brands, and immerse yourself in a refined atmosphere dedicated to the art of fragrance.
+    {/* DESCRIPTION */}
+    <p className={`${interTight.className} mt-6 text-black text-base leading-relaxed max-w-2xl font-light`}>
+      The Fragrance Expo takes place at WOW Hotel Istanbul across a space exceeding 1400 m², bringing together more than 90 exhibitors and sponsors from around the world in a refined professional environment. The event features interactive activities and unique experiences, offering an exceptional opportunity for fragrance professionals and enthusiasts to build partnerships, discover the latest innovations, and engage in a global luxury event.
     </p>
 
     {/* FEATURES */}
-    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div className={`${interTight.className} mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6`}>
 
       {[
         {
           icon: Sparkles,
-          title: "Luxury Experience",
-          desc: "Explore fragrances in an elegant 5-star setting.",
+          title: "Luxury Atmosphere",
+          desc: "A refined environment blending elegance and creativity.",
         },
         {
           icon: Building2,
-          title: "Premium Location",
-          desc: "Hosted at WOW Hotel Istanbul.",
+          title: "Strategic Location",
+          desc: "Hosted in Istanbul, a global hub for business and tourism.",
         },
         {
           icon: Users,
-          title: "Global Brands",
-          desc: "Meet international perfume creators.",
+          title: "90+ Exhibitors",
+          desc: "International brands, experts, and perfume creators.",
         },
         {
           icon: CalendarCheck2,
-          title: "Exclusive Access",
-          desc: "A refined and limited exhibition event.",
+          title: "Exclusive Experience",
+          desc: "Interactive activities and premium networking opportunities.",
         },
       ].map((item, i) => {
         const Icon = item.icon;
@@ -173,6 +192,7 @@ export default function HeroSection() {
           </div>
         );
       })}
+
     </div>
 
   </div>

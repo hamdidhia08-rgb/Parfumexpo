@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkında",
+    "exhibitors": "Katılımcılar",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "join": "Fuar'a Katıl",
+    "menu": "Menü",
+    "Participation":"Participation"
+  },
+  
+  "brand": {
+    "name": "Parfüm Fuarı"
+  },
+  "hero": {
+    "badge": "Lüks Parfüm Deneyimi",
+    "title1": "Sanatını Keşfedin",
+    "title2": "Lüks",
+    "title3": "Parfümler",
+    "desc": "Zarafet ve yaratıcılığın buluştuğu özel bir parfüm sergisini keşfedin.",
+    "cta": "Sergiyi Keşfet",
+    "watch": "Deneyimi İzle"
+  },
+    "countdown": {
+    "top": "Yaklaşan Parfüm - Kaçırmayın",
+    "days": "Gün",
+    "hours": "Saat",
+    "minutes": "Dakika",
+    "seconds": "Saniye"
+  },
+   "marquee": {
+    "title": "İSTANBUL PARFÜM FUARI 2026",
+    "exp": "LÜKS PARFÜM DENEYİMİ",
+    "perfumers": "DÜNYA ÇAPINDA PARFÜMCÜLER",
+    "collection": "ÖZEL KOKU KOLEKSİYONLARI"
+  },
+    "about": {
+    "badge": "Parfüm Fuarı",
+    "title1": "Lüksün Özünü Keşfedin",
+    "title2": "Parfüm Deneyimi",
+    "desc": "Kokunun sanata dönüştüğü dünyayı keşfedin.",
+    "cta": "Sergiyi Keşfet",
+    "contact": "Bize Ulaşın",
+    "attendees": "Katılımcı",
+    "card1": {
+      "title": "Premium Markalar",
+      "desc": "Dünya çapında parfüm markalarını keşfedin."
+    },
+    "card2": {
+      "title": "Eşsiz Deneyim",
+      "desc": "Duyularınızı harekete geçiren deneyimler."
+    }
+  }
+
+}
