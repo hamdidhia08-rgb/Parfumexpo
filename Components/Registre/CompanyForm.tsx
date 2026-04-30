@@ -1,171 +1,258 @@
 "use client";
 
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { Input } from "@/Components/ui/input";
-import { Textarea } from "@/Components/ui/textarea";
-import { Button } from "@/Components/ui/button";
-import { Phone, Mail, MapPin, Loader2 } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
+import { Loader2, Globe } from "lucide-react";
 import { toast } from "sonner";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-type CompanyFormProps = {
+import { Input } from "@/Components/ui/input";
+import { Button } from "@/Components/ui/button";
+import { Textarea } from "@/Components/ui/textarea";
+import { Label } from "@/Components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group";
+import CountrySelect from "./CountrySelect";
+
+type Props = {
   onSuccess: (data: any) => void;
 };
-export default function CompanyForm({ onSuccess }: CompanyFormProps) {
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
+
+export default function CompanyForm({ onSuccess }: Props) {
 
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  // handle change
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [form, setForm] = useState<any>({
+    first_name: "",
+    last_name: "",
+    title: "",
+    position: "",
+    email: "",
+    mobile: "",
+    company_phone: "",
+    fax: "",
+    company_name: "",
+    country: "",
+    region: "",
+    city: "",
+    postal_code: "",
+    address: "",
+    website: "",
+    facebook: "",
+    linkedin: "",
+    instagram: "",
+    youtube: "",
+    twitter: "",
+    activity_type: "",
+    stand: "no",
+    stand_type: "",
+    stand_size: "",
+    stand_location: "",
+    notes: "",
+    accepted: false,
+  });
+
+  const handleChange = (e: any) => {
+    const { name, value, type, checked } = e.target;
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
-  // submit
-  const handleSubmit = async (e: React.FormEvent) => {
+  const validate = () => {
+    if (!form.first_name) return "First name required";
+    if (!form.email) return "Email required";
+    if (!form.company_name) return "Company required";
+    if (!form.accepted) return "Accept terms";
+    return null;
+  };
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    const err = validate();
+    if (err) {
+      setError(err);
+      return;
+    }
 
     setLoading(true);
 
     try {
-      await axios.post("/api/contact", form);
+      await axios.post("/api/company", form);
 
-      toast.success("Message sent successfully ✨");
+      toast.success("Registered successfully 🎉");
 
-      setForm({
-        firstName: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        message: "",
-      });
-    } catch (err) {
-      toast.error("Something went wrong. Try again.");
+      onSuccess(form);
+
+    } catch (err: any) {
+      toast.error(err?.response?.data?.error || "Error");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className={`${inter.className} py-16 md:py-24 bg-[#f7f7f7]`}>
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <form onSubmit={handleSubmit} className="grid gap-8">
 
-        <div className="grid lg:grid-cols-2 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
+      {error && (
+        <div className="text-red-500 bg-red-50 p-3 rounded-xl text-sm">
+          {error}
+        </div>
+      )}
 
-          {/* LEFT IMAGE */}
-          <div className="relative h-[320px] sm:h-[400px] lg:h-auto">
-            <Image src="/images/contact.jpg" alt="contact" fill className="object-cover" />
-            <div className="absolute inset-0 bg-black/30 md:bg-black/20" />
+      {/* PERSONAL */}
+      <div className="grid md:grid-cols-2 gap-4">
+        <Input name="first_name" placeholder="First Name" className="h-12" onChange={handleChange} />
+        <Input name="last_name" placeholder="Last Name" className="h-12" onChange={handleChange} />
+      </div>
 
-            <div className="absolute inset-0 p-5 sm:p-6 md:p-8 flex flex-col justify-end text-white">
+      <div className="grid md:grid-cols-2 gap-4">
+        <Input name="title" placeholder="Title (Mr / Mrs)" className="h-12" onChange={handleChange} />
+        <Input name="position" placeholder="Position" className="h-12" onChange={handleChange} />
+      </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-5 md:mb-6">
+      {/* CONTACT */}
+      <div className="grid md:grid-cols-2 gap-4">
+        <Input name="email" placeholder="Email" className="h-12" onChange={handleChange} />
+        <Input name="mobile" placeholder="Mobile" className="h-12" onChange={handleChange} />
+      </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2.5 md:p-3 rounded-lg bg-[#C9A227] text-white">
-                    <Phone size={18} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm md:text-base">Call Now!</p>
-                    <p className="text-xs md:text-sm text-white/80">
-                      +90 538 507 39 47
-                    </p>
-                  </div>
-                </div>
+      <div className="grid md:grid-cols-2 gap-4">
+        <Input name="company_phone" placeholder="Company Phone" className="h-12" onChange={handleChange} />
+        <Input name="fax" placeholder="Fax" className="h-12" onChange={handleChange} />
+      </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2.5 md:p-3 rounded-lg bg-[#C9A227] text-white">
-                    <Mail size={18} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm md:text-base">E-mail Us!</p>
-                    <p className="text-xs md:text-sm text-white/80">
-                      info@parfumexp.com
-                    </p>
-                  </div>
-                </div>
+      {/* COMPANY */}
+      <Input name="company_name" placeholder="Company Name" className="h-12" onChange={handleChange} />
 
-              </div>
+      <div className="grid md:grid-cols-2 gap-4">
 
-              <div className="flex items-start gap-3 border-t border-white/20 pt-4 md:pt-6">
-                <div className="p-2.5 md:p-3 rounded-lg bg-[#C9A227] text-white">
-                  <MapPin size={18} />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm md:text-base">Our Location!</p>
-                  <p className="text-xs md:text-sm text-white/80">
-                    WOW İstanbul Hotel, Turkey
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* RIGHT FORM */}
-          <div className="bg-white p-6 sm:p-8 md:p-10 lg:p-14">
-
-            <p className="text-[#C9A227] text-sm mb-2 md:mb-3">• Contact Us</p>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black leading-tight mb-3 md:mb-4">
-              Get in touch with our team anytime today
-            </h2>
-
-            <p className="text-gray-500 text-sm md:text-base mb-6 md:mb-8">
-              Our team is always here to listen and support you.
-            </p>
-
-            <form onSubmit={handleSubmit} className="grid gap-4 md:gap-5">
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input name="firstName" value={form.firstName} onChange={handleChange} placeholder="First Name" className="h-11 md:h-12 bg-gray-100 border-0" />
-                <Input name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last Name" className="h-11 md:h-12 bg-gray-100 border-0" />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input name="phone" value={form.phone} onChange={handleChange} placeholder="Mobile Number" className="h-11 md:h-12 bg-gray-100 border-0" />
-                <Input name="email" value={form.email} onChange={handleChange} placeholder="E-mail Address" className="h-11 md:h-12 bg-gray-100 border-0" />
-              </div>
-
-              <Textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                placeholder="Write your message here..."
-                className="min-h-[120px] md:min-h-[140px] bg-gray-100 border-0"
-              />
-
-              <Button
-                type="submit"
-                disabled={loading}
-                className="w-full sm:w-fit bg-[#C9A227] hover:bg-[#b8921f] text-white px-6 h-11 md:h-10 rounded-lg flex items-center justify-center gap-2"
-              >
-                {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-                {loading ? "Sending..." : "Send A Message"}
-              </Button>
-
-            </form>
-
-          </div>
-
+        {/* COUNTRY (SAME AS VISITOR) */}
+        <div className="relative">
+          <Globe className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 z-10" size={16} />
+          <CountrySelect
+            onChange={(val: any) =>
+              setForm({ ...form, country: val?.value || "" })
+            }
+          />
         </div>
 
+        <Input name="city" placeholder="City" className="h-12" onChange={handleChange} />
       </div>
-    </section>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <Input name="region" placeholder="Region" className="h-12" onChange={handleChange} />
+        <Input name="postal_code" placeholder="Postal Code" className="h-12" onChange={handleChange} />
+      </div>
+
+      <Input name="address" placeholder="Address" className="h-12" onChange={handleChange} />
+
+      {/* SOCIAL */}
+      <div className="grid md:grid-cols-3 gap-4">
+        <Input name="website" placeholder="Website" className="h-12" onChange={handleChange} />
+        <Input name="facebook" placeholder="Facebook" className="h-12" onChange={handleChange} />
+        <Input name="linkedin" placeholder="LinkedIn" className="h-12" onChange={handleChange} />
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-4">
+        <Input name="instagram" placeholder="Instagram" className="h-12" onChange={handleChange} />
+        <Input name="youtube" placeholder="YouTube" className="h-12" onChange={handleChange} />
+        <Input name="twitter" placeholder="X (Twitter)" className="h-12" onChange={handleChange} />
+      </div>
+
+      {/* ACTIVITY TYPE */}
+      <Label>Activity Type</Label>
+      <RadioGroup
+        onValueChange={(val) => setForm({ ...form, activity_type: val })}
+        className="grid md:grid-cols-3 gap-4"
+      >
+        {["Perfume", "Factory", "Packaging", "Oils", "Private Label", "Other"].map((item) => (
+          <Label key={item} className="flex items-center gap-3 border rounded-xl p-4 cursor-pointer">
+            <RadioGroupItem value={item} />
+            {item}
+          </Label>
+        ))}
+      </RadioGroup>
+
+      {/* STAND YES/NO */}
+      <Label>Do you want a stand?</Label>
+      <RadioGroup
+        defaultValue="no"
+        onValueChange={(val) => setForm({ ...form, stand: val })}
+        className="flex gap-4"
+      >
+        <Label className="flex items-center gap-2 border rounded-xl p-3 cursor-pointer">
+          <RadioGroupItem value="yes" /> Yes
+        </Label>
+        <Label className="flex items-center gap-2 border rounded-xl p-3 cursor-pointer">
+          <RadioGroupItem value="no" /> No
+        </Label>
+      </RadioGroup>
+
+      {form.stand === "yes" && (
+        <>
+          {/* STAND TYPE */}
+          <Label>Stand Type</Label>
+          <RadioGroup
+            onValueChange={(val) => setForm({ ...form, stand_type: val })}
+            className="grid md:grid-cols-3 gap-4"
+          >
+            {["Economy", "Standard", "Premium"].map((item) => (
+              <Label key={item} className="flex items-center gap-3 border rounded-xl p-4 cursor-pointer">
+                <RadioGroupItem value={item} />
+                {item}
+              </Label>
+            ))}
+          </RadioGroup>
+
+          {/* SIZE */}
+          <Label>Stand Size</Label>
+          <RadioGroup
+            onValueChange={(val) => setForm({ ...form, stand_size: val })}
+            className="grid md:grid-cols-2 gap-4"
+          >
+            {["4x4", "2x4", "Corner", "Custom"].map((item) => (
+              <Label key={item} className="flex items-center gap-3 border rounded-xl p-4 cursor-pointer">
+                <RadioGroupItem value={item} />
+                {item}
+              </Label>
+            ))}
+          </RadioGroup>
+
+          {/* LOCATION */}
+          <Label>Stand Location</Label>
+          <RadioGroup
+            onValueChange={(val) => setForm({ ...form, stand_location: val })}
+            className="grid md:grid-cols-3 gap-4"
+          >
+            {["Inside", "Side", "Front"].map((item) => (
+              <Label key={item} className="flex items-center gap-3 border rounded-xl p-4 cursor-pointer">
+                <RadioGroupItem value={item} />
+                {item}
+              </Label>
+            ))}
+          </RadioGroup>
+        </>
+      )}
+
+      {/* NOTES */}
+      <Textarea name="notes" placeholder="Notes..." onChange={handleChange} />
+
+      {/* TERMS */}
+      <label className="flex items-center gap-2 text-sm">
+        <input type="checkbox" name="accepted" onChange={handleChange} />
+        I agree to terms
+      </label>
+
+      {/* BUTTON */}
+      <Button
+        disabled={loading}
+        className="h-12 bg-[#C9A227] hover:bg-[#b8921f] text-white rounded-xl"
+      >
+        {loading ? <Loader2 className="animate-spin" /> : "Register Company"}
+      </Button>
+
+    </form>
   );
 }
