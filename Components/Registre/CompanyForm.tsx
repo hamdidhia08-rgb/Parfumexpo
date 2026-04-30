@@ -14,8 +14,10 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-
-export default function ContactBlock() {
+type CompanyFormProps = {
+  onSuccess: (data: any) => void;
+};
+export default function CompanyForm({ onSuccess }: CompanyFormProps) {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
