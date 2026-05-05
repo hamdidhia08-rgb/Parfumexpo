@@ -7,7 +7,7 @@
     "contact": "İletişim",
     "join": "Fuar'a Katıl",
     "menu": "Menü",
-    "Participation":"Participation"
+    "Participation":"Katılım"
   },
   
   "brand": {
@@ -35,22 +35,522 @@
     "perfumers": "DÜNYA ÇAPINDA PARFÜMCÜLER",
     "collection": "ÖZEL KOKU KOLEKSİYONLARI"
   },
-    "about": {
+     "about": {
     "badge": "Parfüm Fuarı",
-    "title1": "Lüksün Özünü Keşfedin",
-    "title2": "Parfüm Deneyimi",
-    "desc": "Kokunun sanata dönüştüğü dünyayı keşfedin.",
-    "cta": "Sergiyi Keşfet",
+   "title1": "Lüks Dünyasını Keşfedin",
+   "title2": "Parfüm Sanatı",
+    "desc": "20 yılı aşkın bir sürenin ardından parfüm fuarı İstanbul’a geri dönüyor ve 90’dan fazla uluslararası marka, uzman ve meraklıyı bir araya getirerek lüks, yenilik ve küresel parfüm kültürünü kutlayan benzersiz bir etkinlik sunuyor.",
+    "cta": "Fuarı Keşfet",
     "contact": "Bize Ulaşın",
-    "attendees": "Katılımcı",
+    "attendees": "Uluslararası Ziyaretçiler",
     "card1": {
-      "title": "Premium Markalar",
-      "desc": "Dünya çapında parfüm markalarını keşfedin."
+      "title": "Uluslararası Markalar",
+      "desc": "90’dan fazla katılımcı, özel parfümler ve en yeni kreasyonlarını sergiliyor."
     },
     "card2": {
-      "title": "Eşsiz Deneyim",
-      "desc": "Duyularınızı harekete geçiren deneyimler."
+      "title": "Eşsiz Deneyimler",
+      "desc": "Atölyeler, parfüm oluşturma ve etkileşimli koku deneyimlerinin tadını çıkarın."
     }
+  },
+  "register": {
+    "badge": "Kayıt Seçenekleri",
+    "title1": "Deneyimini",
+    "title2": "Seç",
+    "desc": "Parfüm fuarına ziyaretçi veya katılımcı olarak katılın ve özel fırsatları keşfedin.",
+    "visitor": {
+      "badge": "ZİYARETÇİ GİRİŞİ",
+      "title": "Lüks Parfümleri Keşfedin",
+      "desc": "Ziyaretçi olarak kaydolun ve seçkin markaları, özel kokuları ve canlı deneyimleri keşfedin.",
+      "button": "Hemen Kayıt Ol"
+    },
+    "business": {
+      "badge": "ŞİRKET GİRİŞİ",
+      "title": "Markanızı Tanıtın",
+      "desc": "Şirket olarak kaydolun, ürünlerinizi sergileyin ve uluslararası alıcılarla bağlantı kurun.",
+      "button": "Hemen Kayıt Ol"
+    }
+  },
+   "schedule": {
+    "badge": "Özel Etkinlik Programı",
+    "title1": "Premium uluslararası ",
+    "title2": "etkinlikleri keşfedin",
+    "footer": "Ekibimize katılın ve yeniliği dünyaya taşıyın.",
+    "days": {
+      "day1": "1. Gün",
+      "day2": "2. Gün",
+      "day3": "3. Gün"
+    },
+    "data": {
+   "day1": [
+  {
+    "id": 1,
+    "title": "Uluslararası Parfüm Fuarı Resmi Açılışı",
+    "desc": "Fuar, sektörün önde gelen uzmanları ve dünya çapındaki lüks markaların katılımıyla başlar. Ziyaretçilere, üst düzey parfüm endüstrisindeki en son trendler ve benzersiz duyusal deneyimler sunulur.",
+    "date": "18 Ağustos 2024",
+    "time": "09:00 - 10:30",
+    "location": "Ana Salon",
+    "image": "/images/exemple1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Lüks Marka Standları Keşif Turu",
+    "desc": "Dünya çapındaki parfüm markalarının en yeni koleksiyonlarını keşfedin, nadir içerikleri ve gelişmiş üretim tekniklerini interaktif bir deneyimle öğrenin.",
+    "date": "18 Ağustos 2024",
+    "time": "10:30 - 14:00",
+    "location": "Ana Sergi Alanı",
+    "image": "/images/2151623430_copy.webp"
+  },
+  {
+    "id": 3,
+    "title": "Parfüm Yapım Atölyesi",
+    "desc": "Katılımcıların parfüm oluşturma sanatını öğrendiği, notaların uzman parfümcüler eşliğinde harmanlandığı özel bir atölye deneyimi.",
+    "date": "18 Ağustos 2024",
+    "time": "14:30 - 17:30",
+    "location": "Yaratıcı Atölye Salonu",
+    "image": "/images/Blog/blog1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Özel Parfüm Gecesi & Duyusal Deneyim",
+    "desc": "VIP misafirler için düzenlenen bu özel gecede, canlı parfüm sunumları, nadir notaların duyusal deneyimleri ve sektör profesyonelleriyle networking fırsatları sunulmaktadır.",
+    "date": "18 Ağustos 2024",
+    "time": "18:00 - 21:00",
+    "location": "VIP Salonu",
+    "image": "/images/interactive-process-image-1.jpg"
   }
+],
+ "day2": [
+  {
+    "id": 1,
+    "title": "Uluslararası Parfüm Fuarı Resmi Açılışı",
+    "desc": "Fuar, sektörün önde gelen uzmanları ve dünya çapındaki lüks markaların katılımıyla başlar. Ziyaretçilere, üst düzey parfüm endüstrisindeki en son trendler ve benzersiz duyusal deneyimler sunulur.",
+    "date": "18 Ağustos 2024",
+    "time": "09:00 - 10:30",
+    "location": "Ana Salon",
+    "image": "/images/exemple1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Lüks Marka Standları Keşif Turu",
+    "desc": "Dünya çapındaki parfüm markalarının en yeni koleksiyonlarını keşfedin, nadir içerikleri ve gelişmiş üretim tekniklerini interaktif bir deneyimle öğrenin.",
+    "date": "18 Ağustos 2024",
+    "time": "10:30 - 14:00",
+    "location": "Ana Sergi Alanı",
+    "image": "/images/2151623430_copy.webp"
+  },
+  {
+    "id": 3,
+    "title": "Parfüm Yapım Atölyesi",
+    "desc": "Katılımcıların parfüm oluşturma sanatını öğrendiği, notaların uzman parfümcüler eşliğinde harmanlandığı özel bir atölye deneyimi.",
+    "date": "18 Ağustos 2024",
+    "time": "14:30 - 17:30",
+    "location": "Yaratıcı Atölye Salonu",
+    "image": "/images/Blog/blog1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Özel Parfüm Gecesi & Duyusal Deneyim",
+    "desc": "VIP misafirler için düzenlenen bu özel gecede, canlı parfüm sunumları, nadir notaların duyusal deneyimleri ve sektör profesyonelleriyle networking fırsatları sunulmaktadır.",
+    "date": "18 Ağustos 2024",
+    "time": "18:00 - 21:00",
+    "location": "VIP Salonu",
+    "image": "/images/interactive-process-image-1.jpg"
+  }
+],
+ "day3": [
+  {
+    "id": 1,
+    "title": "Uluslararası Parfüm Fuarı Resmi Açılışı",
+    "desc": "Fuar, sektörün önde gelen uzmanları ve dünya çapındaki lüks markaların katılımıyla başlar. Ziyaretçilere, üst düzey parfüm endüstrisindeki en son trendler ve benzersiz duyusal deneyimler sunulur.",
+    "date": "18 Ağustos 2024",
+    "time": "09:00 - 10:30",
+    "location": "Ana Salon",
+    "image": "/images/exemple1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Lüks Marka Standları Keşif Turu",
+    "desc": "Dünya çapındaki parfüm markalarının en yeni koleksiyonlarını keşfedin, nadir içerikleri ve gelişmiş üretim tekniklerini interaktif bir deneyimle öğrenin.",
+    "date": "18 Ağustos 2024",
+    "time": "10:30 - 14:00",
+    "location": "Ana Sergi Alanı",
+    "image": "/images/2151623430_copy.webp"
+  },
+  {
+    "id": 3,
+    "title": "Parfüm Yapım Atölyesi",
+    "desc": "Katılımcıların parfüm oluşturma sanatını öğrendiği, notaların uzman parfümcüler eşliğinde harmanlandığı özel bir atölye deneyimi.",
+    "date": "18 Ağustos 2024",
+    "time": "14:30 - 17:30",
+    "location": "Yaratıcı Atölye Salonu",
+    "image": "/images/Blog/blog1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Özel Parfüm Gecesi & Duyusal Deneyim",
+    "desc": "VIP misafirler için düzenlenen bu özel gecede, canlı parfüm sunumları, nadir notaların duyusal deneyimleri ve sektör profesyonelleriyle networking fırsatları sunulmaktadır.",
+    "date": "18 Ağustos 2024",
+    "time": "18:00 - 21:00",
+    "location": "VIP Salonu",
+    "image": "/images/interactive-process-image-1.jpg"
+  }
+]
+    }
+  },
+
+  "hero2": {
+    "label": "Parfüm Fuarı",
+
+    "title1": "İstanbul’da Koku Sanatı",
+
+    "desc1": "Parfüm Fuarı, 20 yılı aşkın bir aradan sonra İstanbul’a geri dönerek dünyanın dört bir yanından parfüm üreticilerini, markaları ve uzmanları prestijli bir etkinlikte bir araya getiriyor. Stratejik konumu ve küresel önemi sayesinde İstanbul, inovasyon, iş birlikleri ve lüks deneyimler için ideal bir ortam sunarak bu etkinliği benzersiz bir buluşma noktası haline getiriyor.",
+
+    "organizer": "Etkinlik düzenlenmektedir",
+    "company": "Aşk Istanbul",
+    "by": "gözetiminde",
+    "person": "SEMIRE SARHAN",
+
+    "ticks": [
+      "Parfüm markaları ve uzmanlarının küresel buluşması",
+      "90’dan fazla uluslararası katılımcı ve sponsor",
+      "8 – 10 Temmuz 2026, İstanbul"
+    ],
+
+    "location": "WOW Hotel İstanbul",
+
+    "title2": "İstanbul Parfüm Fuarı",
+
+    "desc2": "Parfüm Fuarı, WOW Hotel İstanbul’da 1400 m²’yi aşan geniş bir alanda düzenlenerek dünyanın dört bir yanından 90’dan fazla katılımcı ve sponsoru bir araya getirir. Etkinlik, interaktif aktiviteler ve özel deneyimler sunarak sektör profesyonelleri ve parfüm tutkunları için yeni iş birlikleri kurma, en son yenilikleri keşfetme ve global bir lüks etkinliğin parçası olma fırsatı sağlar.",
+
+    "features": [
+      {
+        "title": "Lüks Atmosfer",
+        "desc": "Zarafet ve yaratıcılığı bir araya getiren seçkin bir ortam."
+      },
+      {
+        "title": "Stratejik Konum",
+        "desc": "İstanbul’da, iş ve turizmin kesiştiği küresel bir merkez."
+      },
+      {
+        "title": "90+ Katılımcı",
+        "desc": "Uluslararası markalar, uzmanlar ve parfüm üreticileri."
+      },
+      {
+        "title": "Özel Deneyim",
+        "desc": "Etkileşimli aktiviteler ve üst düzey networking fırsatları."
+      }
+    ]
+  },
+  "team": {
+  "title": "Ekibimizle Tanışın",
+  "desc": "Yenilik, zarafet ve değer üretmeye odaklı tutkulu bir ekip.",
+"members": [
+  {
+    "name": "Semire Şarhan",
+    "role": "Genel Müdür",
+    "image": "/images/team/img1.jpeg",
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "phone": "21612345678"
+  },
+  {
+    "name": "Seher Arslan",
+    "role": "Aşk İstanbul Genel Müdürü",
+    "image": "/images/team/img2.jpeg",
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "phone": "21698765432"
+  },
+  {
+    "name": "Abdulkadir Şarhan",
+    "role": "Operasyon Direktörü",
+    "image": "/images/team/img4.jpeg",
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "phone": "21655555555"
+  },
+  {
+    "name": "Khaled Zia",
+    "role": "Operasyon Müdürü",
+    "image": "/images/team/img5.jpeg",
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "phone": "21644444444"
+  }
+]
+},
+"footer": {
+  "desc": "Parfüm dünyasında benzersiz bir deneyim keşfedin. Zarafet, kalite ve lüks bir arada.",
+  "nav": "Navigasyon",
+  "home": "Ana Sayfa",
+  "register": "Kayıt",
+  "about": "Hakkımızda",
+  "contact": "İletişim",
+  "support": "Destek",
+  "faq": "SSS",
+  "shipping": "Teslimat",
+  "policy": "Politika",
+  "terms": "Şartlar",
+  "newsletter": "Bülten",
+  "newsDesc": "En son teklifleri ve güncellemeleri almak için abone olun.",
+  "placeholder": "E-posta adresiniz",
+  "btn": "Gönder",
+  "copy": "© {{year}} Parfüm Fuarı. Tüm hakları saklıdır."
+},
+ "hero3": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "register": "Kayıt Ol",
+    "blog": "Blog",
+    "contact": "İletişim",
+
+    "homeTitle": "Lüks Parfüm Fuarı Deneyimi",
+    "aboutTitle": "Fuar Vizyonumuz Hakkında",
+    "registerTitle": "Özel Fuarımıza Katılın",
+    "blogTitle": "Parfüm Trendleri ve İçgörüler",
+    "contactTitle": "Ekibimizle İletişime Geçin",
+
+    "defaultTitle": "Hoş Geldiniz"
+  },
+   "about2": {
+    "badge": "Fuar Etkinlikleri",
+    "title1": "Deneyimlerimizi",
+    "title2": "Keşfedin",
+    "desc": "Parfüm Fuarı, 20 yılı aşkın bir aradan sonra İstanbul'a geri dönüyor. Dünyaca ünlü markaları, uzmanları ve en yeni yenilikleri keşfedin. Lüks, yaratıcılık ve yeni fırsatlarla dolu bir dünyayı deneyimleyin.",
+
+    "card1": {
+      "title": "Parfüm Pazarı",
+      "desc": "Lüks yağlar ve tütsüler dahil olmak üzere önde gelen markalardan doğrudan alışveriş yapın."
+    },
+    "card2": {
+      "title": "Kendi Parfümünü Yarat",
+      "desc": "Uzman rehberliğinde kendi imza kokunuzu oluşturun."
+    },
+    "card3": {
+      "title": "Koku Geçidi",
+      "desc": "Lüks ve kutlama dolu etkileyici bir gösterinin keyfini çıkarın."
+    },
+    "card4": {
+      "title": "Parfüm Stüdyosu",
+      "desc": "Parfüm temalı alanlarda yaratıcı anlar yakalayın."
+    }
+  },
+    "finalAbout": {
+    "badge": "İstanbul Parfüm Fuarı",
+    "title1": "Keşfetmeye Davet",
+    "title2": "Sınırların Ötesinde Koku",
+
+    "desc1": "Her kokunun bir hikâye anlattığı ve her notanın bir duygu uyandırdığı bir dünyaya adım atın. İstanbul’daki fuarımız sadece bir etkinlik değil; yaratıcılık, lüks ve inovasyonun buluştuğu özel bir deneyimdir.",
+
+    "desc2": "İster bir marka, ister bir yaratıcı ya da tutkulu bir meraklı olun; bu, nadir kompozisyonları keşfetmek, global uzmanlarla bağlantı kurmak ve kokuyu en rafine haliyle deneyimlemek için fırsatınızdır.",
+
+    "cta": "Deneyime Katıl"
+  },
+  "heroBanner": {
+    "title1": "Lüks Kokunun Özünü",
+    "title2": "Keşfedin",
+    "desc": "Kokunun sanata dönüştüğü ve zarafetin her anı tanımladığı seçkin bir dünyaya adım atın.",
+    "cta": "Şimdi Kayıt Ol"
+  },
+   "map": {
+    "title": "İstanbul’da Bizi Ziyaret Edin",
+    "address": "Yeşilköy, Atatürk Havalimanı Yolu No:15-17-19, Bakırköy / İstanbul"
+  },
+  "register2": {
+  "badge": "Deneyime Katıl",
+  "title1": "Kayıt Ol",
+  "title2": "Parfüm Fuarı",
+  "desc": "En seçkin parfüm fuarında yerinizi hemen ayırtın.",
+  "visitor": "Ziyaretçi",
+  "exhibitor": "Katılımcı"
+},
+"visitorForm": {
+  "fullName": "Ad Soyad",
+  "email": "E-posta Adresi",
+  "phone": "Telefon Numarası",
+  "firstVisit": "Bu ilk ziyaretiniz mi?",
+  "source": "Fuarı nasıl duydunuz?",
+  "country": "Ülke Seçin",
+  "terms": "Şartları ve koşulları kabul ediyorum",
+  "submit": "Ziyaretçi olarak kayıt ol",
+
+  "success": "Kayıt başarıyla tamamlandı 🎉",
+  "error": "Bir hata oluştu",
+
+  "errors": {
+    "name": "Ad Soyad gerekli",
+    "email": "E-posta gerekli",
+    "country": "Ülke gerekli",
+    "terms": "Şartları kabul etmelisiniz"
+  },
+
+  "interests": {
+    "perfume": "Parfüm",
+    "trade": "Ticaret",
+    "investment": "Yatırım"
+  }
+},
+ "companyForm": {
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "title": "Unvan",
+    "position": "Pozisyon",
+
+    "email": "E-posta Adresi",
+    "mobile": "Telefon Numarası",
+    "companyPhone": "Şirket Telefonu",
+    "fax": "Faks",
+
+    "company": "Şirket Adı",
+    "city": "Şehir",
+    "region": "Bölge",
+    "postal": "Posta Kodu",
+    "address": "Adres",
+
+    "website": "Web Sitesi",
+
+    "activityTitle": "Faaliyet Türü",
+
+    "terms": "Şartları ve koşulları kabul ediyorum",
+    "submit": "Şirket Kaydı",
+
+    "success": "Kayıt başarıyla tamamlandı 🎉",
+    "error": "Bir hata oluştu",
+
+    "errors": {
+      "firstName": "Ad gerekli",
+      "email": "E-posta gerekli",
+      "company": "Şirket adı gerekli",
+      "terms": "Şartları kabul etmelisiniz"
+    },
+
+    "activity": {
+      "perfume": "Parfüm",
+      "factory": "Fabrika",
+      "packaging": "Ambalaj",
+      "oils": "Yağlar",
+      "privateLabel": "Özel Marka",
+      "other": "Diğer"
+    },
+     "standQuestion": "Stand ister misiniz?",
+  "standType": "Stand Türü",
+  "standSize": "Stand Boyutu",
+  "standLocation": "Stand Konumu",
+
+  "notes": "Notlar...",
+
+  "yes": "Evet",
+  "no": "Hayır",
+
+  "standTypes": {
+    "economy": "Ekonomik",
+    "standard": "Standart",
+    "premium": "Premium"
+  },
+
+  "standSizes": {
+    "4x4": "4x4",
+    "2x4": "2x4",
+    "corner": "Köşe",
+    "custom": "Özel"
+  },
+
+  "standLocations": {
+    "inside": "İç",
+    "side": "Yan",
+    "front": "Ön"
+  }
+  },
+  "voucher": {
+  "thank": "Teşekkürler,",
+  "desc": "Kaydınız onaylandı. İşte dijital davetiniz.",
+  "qrText": "Girişte bu QR kodunu gösteriniz.",
+  "download": "Bileti İndir",
+  "back": "Kayıta Dön"
+},
+"companyVoucher": {
+  "welcome": "Hoşgeldiniz",
+  "desc": "Katılımcı kaydınız onaylandı.",
+  "qrText": "Girişte bu QR kodunu gösteriniz.",
+  "download": "Bileti İndir",
+  "back": "Geri"
+},
+ "blog": {
+    "month1": "Nisan 2026",
+    "month2": "Nisan 2026",
+    "month3": "Nisan 2026",
+    "recentPosts": "Son Yazılar",
+    "author1": "Parfüm Fuarı Ekibi",
+    "author2": "Fuar Haberleri",
+    "author3": "Sektör Analizleri",
+
+    "category1": "Fuar",
+    "category2": "Etkinlikler",
+    "category3": "İş",
+
+    "title1": "Parfüm Fuarı İstanbul 2026 Resmen Açıklandı",
+    "title2": "Küresel Katılımla Eşsiz Bir Koku Deneyimi",
+    "title3": "Parfüm Sektöründe Genişleyen Fırsatlar",
+
+    "desc1": "Uluslararası Parfüm Fuarı İstanbul, 8–10 Temmuz 2026 tarihleri arasında düzenlenecek ve dünyanın dört bir yanından sektör profesyonellerini bir araya getirecek.",
+    "desc2": "WOW İstanbul Otel’de 1400 m² alanda düzenlenecek fuar, 90’dan fazla uluslararası katılımcıyı ve 10.000’den fazla ziyaretçiyi ağırlayacak.",
+    "desc3": "Aşk Istanbul tarafından SEMIRE SARHAN liderliğinde organize edilen etkinlik, küresel parfüm sektöründe güçlü bir iş ve network platformu sunuyor.",
+
+    "readMore": "Devamını oku",
+    "comments": "0 yorum"
+  },
+  "blogDetail": {
+    "title1": "Parfüm Fuarı İstanbul 2026 Resmen Açıklandı",
+    "title2": "Küresel Katılımla Eşsiz Bir Koku Deneyimi",
+    "title3": "Parfüm Sektöründe Genişleyen Fırsatlar",
+
+    "desc1": "Uluslararası Parfüm Fuarı İstanbul, 8–10 Temmuz 2026 tarihleri arasında düzenlenecek ve dünyanın dört bir yanından markaları ve uzmanları bir araya getirecek.",
+    "desc2": "WOW İstanbul Otel’de 1400 m² alanda gerçekleşecek fuar, 90’dan fazla uluslararası katılımcıyı ve binlerce ziyaretçiyi ağırlayacak.",
+    "desc3": "SEMIRE SARHAN liderliğinde Aşk Istanbul tarafından organize edilen etkinlik, küresel parfüm sektöründe güçlü bir iş ve networking platformu sunuyor.",
+
+    "back": "Bloga Dön",
+    "return": "Bloga Geri Dön",
+
+    "point1Title": "Lüks Koku Deneyimi",
+    "point1Desc": "Uluslararası uzmanlar tarafından hazırlanan premium parfümleri keşfedin.",
+
+    "point2Title": "Küresel Ağ Kurma",
+    "point2Desc": "Markalar, üreticiler ve dağıtıcılarla bağlantı kurun.",
+
+    "point3Title": "Yenilik ve Trendler",
+    "point3Desc": "Parfüm dünyasının geleceğini şekillendiren trendleri keşfedin.",
+
+    "extra": "Bu fuar, zarafet, yaratıcılık ve iş fırsatlarını bir araya getirerek parfüm dünyasını keşfetmek için eşsiz bir deneyim sunar."
+  },
+  "blogHeader": {
+  "author": "Yazan: Khaled Zia",
+  "date": "Nisan 2026",
+  "readTime": "3 Dakika Okuma"
+},
+"contact": {
+  "badge": "Bize Ulaşın",
+  "title": "Ekibimizle dilediğiniz zaman iletişime geçin",
+  "desc": "Ekibimiz her zaman sizi dinlemeye hazır.",
+  "call": "Hemen Ara",
+  "email": "E-posta Gönder",
+  "location": "Konumumuz",
+  "firstName": "Ad",
+  "lastName": "Soyad",
+  "phone": "Telefon Numarası",
+  "emailInput": "E-posta Adresi",
+  "message": "Mesajınızı yazın...",
+  "submit": "Mesaj Gönder",
+  "sending": "Gönderiliyor...",
+  "success": "Mesaj başarıyla gönderildi",
+  "error": "Bir hata oluştu",
+  "errors": {
+    "required": "E-posta ve mesaj gerekli"
+  }
+}
+
 
 }

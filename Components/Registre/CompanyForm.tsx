@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Loader2, Globe } from "lucide-react";
 import { toast } from "sonner";
@@ -12,11 +12,27 @@ import { Label } from "@/Components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group";
 import CountrySelect from "./CountrySelect";
 
+import { useTranslation } from "react-i18next";
+import i18n from "@/lib/i18n/i18next";
+
 type Props = {
   onSuccess: (data: any) => void;
 };
 
 export default function CompanyForm({ onSuccess }: Props) {
+  const { t } = useTranslation();
+  const [isArabic, setIsArabic] = useState(false);
+
+  useEffect(() => {
+    const updateLang = () => {
+      const isAr = i18n.language === "ar";
+      setIsArabic(isAr);
+      document.documentElement.dir = isAr ? "rtl" : "ltr";
+    };
+    updateLang();
+    i18n.on("languageChanged", updateLang);
+    return () => i18n.off("languageChanged", updateLang);
+  }, []);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -60,10 +76,10 @@ export default function CompanyForm({ onSuccess }: Props) {
   };
 
   const validate = () => {
-    if (!form.first_name) return "First name required";
-    if (!form.email) return "Email required";
-    if (!form.company_name) return "Company required";
-    if (!form.accepted) return "Accept terms";
+    if (!form.first_name) return t("companyForm.errors.firstName");
+    if (!form.email) return t("companyForm.errors.email");
+    if (!form.company_name) return t("companyForm.errors.company");
+    if (!form.accepted) return t("companyForm.errors.terms");
     return null;
   };
 
@@ -80,13 +96,10 @@ export default function CompanyForm({ onSuccess }: Props) {
 
     try {
       await axios.post("/api/company", form);
-
-      toast.success("Registered successfully 🎉");
-
+      toast.success(t("companyForm.success"));
       onSuccess(form);
-
     } catch (err: any) {
-      toast.error(err?.response?.data?.error || "Error");
+      toast.error(err?.response?.data?.error || t("companyForm.error"));
     } finally {
       setLoading(false);
     }
@@ -103,133 +116,154 @@ export default function CompanyForm({ onSuccess }: Props) {
 
       {/* PERSONAL */}
       <div className="grid md:grid-cols-2 gap-4">
-        <Input name="first_name" placeholder="First Name" className="h-12" onChange={handleChange} />
-        <Input name="last_name" placeholder="Last Name" className="h-12" onChange={handleChange} />
+        <Input name="first_name" placeholder={t("companyForm.firstName")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
+        <Input name="last_name" placeholder={t("companyForm.lastName")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <Input name="title" placeholder="Title (Mr / Mrs)" className="h-12" onChange={handleChange} />
-        <Input name="position" placeholder="Position" className="h-12" onChange={handleChange} />
+        <Input name="title" placeholder={t("companyForm.title")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
+        <Input name="position" placeholder={t("companyForm.position")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
       </div>
 
       {/* CONTACT */}
       <div className="grid md:grid-cols-2 gap-4">
-        <Input name="email" placeholder="Email" className="h-12" onChange={handleChange} />
-        <Input name="mobile" placeholder="Mobile" className="h-12" onChange={handleChange} />
+        <Input name="email" placeholder={t("companyForm.email")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
+        <Input name="mobile" placeholder={t("companyForm.mobile")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <Input name="company_phone" placeholder="Company Phone" className="h-12" onChange={handleChange} />
-        <Input name="fax" placeholder="Fax" className="h-12" onChange={handleChange} />
+        <Input name="company_phone" placeholder={t("companyForm.companyPhone")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
+        <Input name="fax" placeholder={t("companyForm.fax")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
       </div>
 
       {/* COMPANY */}
-      <Input name="company_name" placeholder="Company Name" className="h-12" onChange={handleChange} />
+      <Input name="company_name" placeholder={t("companyForm.company")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
 
       <div className="grid md:grid-cols-2 gap-4">
-
-        {/* COUNTRY (SAME AS VISITOR) */}
         <div className="relative">
-          <Globe className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 z-10" size={16} />
-          <CountrySelect
-            onChange={(val: any) =>
-              setForm({ ...form, country: val?.value || "" })
-            }
-          />
+          <Globe className={`absolute ${isArabic ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 text-gray-400`} size={16}/>
+          <CountrySelect onChange={(val: any) => setForm({ ...form, country: val?.value || "" })}/>
         </div>
-
-        <Input name="city" placeholder="City" className="h-12" onChange={handleChange} />
+        <Input name="city" placeholder={t("companyForm.city")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <Input name="region" placeholder="Region" className="h-12" onChange={handleChange} />
-        <Input name="postal_code" placeholder="Postal Code" className="h-12" onChange={handleChange} />
+        <Input name="region" placeholder={t("companyForm.region")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
+        <Input name="postal_code" placeholder={t("companyForm.postal")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
       </div>
 
-      <Input name="address" placeholder="Address" className="h-12" onChange={handleChange} />
+      <Input name="address" placeholder={t("companyForm.address")} className={`h-12 ${isArabic ? "text-right" : ""}`} onChange={handleChange}/>
 
-      {/* SOCIAL */}
-      <div className="grid md:grid-cols-3 gap-4">
-        <Input name="website" placeholder="Website" className="h-12" onChange={handleChange} />
-        <Input name="facebook" placeholder="Facebook" className="h-12" onChange={handleChange} />
-        <Input name="linkedin" placeholder="LinkedIn" className="h-12" onChange={handleChange} />
-      </div>
+      {/* ACTIVITY */}
+      <Label className={isArabic ? "text-right block" : ""}>
+        {t("companyForm.activityTitle")}
+      </Label>
 
-      <div className="grid md:grid-cols-3 gap-4">
-        <Input name="instagram" placeholder="Instagram" className="h-12" onChange={handleChange} />
-        <Input name="youtube" placeholder="YouTube" className="h-12" onChange={handleChange} />
-        <Input name="twitter" placeholder="X (Twitter)" className="h-12" onChange={handleChange} />
-      </div>
-
-      {/* ACTIVITY TYPE */}
-      <Label>Activity Type</Label>
       <RadioGroup
         onValueChange={(val) => setForm({ ...form, activity_type: val })}
         className="grid md:grid-cols-3 gap-4"
       >
-        {["Perfume", "Factory", "Packaging", "Oils", "Private Label", "Other"].map((item) => (
-          <Label key={item} className="flex items-center gap-3 border rounded-xl p-4 cursor-pointer">
-            <RadioGroupItem value={item} />
-            {item}
+        {[
+          { value: "Perfume", label: t("companyForm.activity.perfume") },
+          { value: "Factory", label: t("companyForm.activity.factory") },
+          { value: "Packaging", label: t("companyForm.activity.packaging") },
+          { value: "Oils", label: t("companyForm.activity.oils") },
+          { value: "Private Label", label: t("companyForm.activity.privateLabel") },
+          { value: "Other", label: t("companyForm.activity.other") },
+        ].map((item) => (
+          <Label key={item.value} className={`flex items-center gap-3 border rounded-xl p-4 ${isArabic ? "flex-row-reverse text-right" : ""}`}>
+            <RadioGroupItem value={item.value}/>
+            {item.label}
           </Label>
         ))}
       </RadioGroup>
+{/* STAND */}
+<Label
+  className={`
+    block
+    ${isArabic ? "text-right font-semibold" : ""}
+  `}
+>
+  {t("companyForm.standQuestion")}
+</Label>
 
-      {/* STAND YES/NO */}
-      <Label>Do you want a stand?</Label>
-      <RadioGroup
-        defaultValue="no"
-        onValueChange={(val) => setForm({ ...form, stand: val })}
-        className="flex gap-4"
-      >
-        <Label className="flex items-center gap-2 border rounded-xl p-3 cursor-pointer">
-          <RadioGroupItem value="yes" /> Yes
-        </Label>
-        <Label className="flex items-center gap-2 border rounded-xl p-3 cursor-pointer">
-          <RadioGroupItem value="no" /> No
-        </Label>
-      </RadioGroup>
+<RadioGroup
+  defaultValue="no"
+  onValueChange={(val) => setForm({ ...form, stand: val })}
+  className={`flex gap-4 ${isArabic ? "flex-row-reverse justify-start" : ""}`}
+>
+  <Label
+    className={`flex items-center gap-2 border rounded-xl p-3 cursor-pointer ${
+      isArabic ? "flex-row-reverse" : ""
+    }`}
+  >
+    <RadioGroupItem value="yes" />
+    {t("companyForm.yes")}
+  </Label>
 
-      {form.stand === "yes" && (
+  <Label
+    className={`flex items-center gap-2 border rounded-xl p-3 cursor-pointer ${
+      isArabic ? "flex-row-reverse" : ""
+    }`}
+  >
+    <RadioGroupItem value="no" />
+    {t("companyForm.no")}
+  </Label>
+</RadioGroup>
+
+      {form.stand==="yes" && (
         <>
-          {/* STAND TYPE */}
-          <Label>Stand Type</Label>
-          <RadioGroup
-            onValueChange={(val) => setForm({ ...form, stand_type: val })}
-            className="grid md:grid-cols-3 gap-4"
-          >
-            {["Economy", "Standard", "Premium"].map((item) => (
-              <Label key={item} className="flex items-center gap-3 border rounded-xl p-4 cursor-pointer">
-                <RadioGroupItem value={item} />
-                {item}
+          {/* TYPE */}
+          <Label className={isArabic ? "text-right block" : ""}>
+            {t("companyForm.standType")}
+          </Label>
+
+          <RadioGroup onValueChange={(val)=>setForm({...form,stand_type:val})} className="grid md:grid-cols-3 gap-4">
+            {[
+              {value:"Economy",label:t("companyForm.standTypes.economy")},
+              {value:"Standard",label:t("companyForm.standTypes.standard")},
+              {value:"Premium",label:t("companyForm.standTypes.premium")},
+            ].map((item)=>(
+              <Label key={item.value} className={`flex items-center gap-3 border rounded-xl p-4 ${isArabic?"flex-row-reverse text-right":""}`}>
+                <RadioGroupItem value={item.value}/>
+                {item.label}
               </Label>
             ))}
           </RadioGroup>
 
           {/* SIZE */}
-          <Label>Stand Size</Label>
-          <RadioGroup
-            onValueChange={(val) => setForm({ ...form, stand_size: val })}
-            className="grid md:grid-cols-2 gap-4"
-          >
-            {["4x4", "2x4", "Corner", "Custom"].map((item) => (
-              <Label key={item} className="flex items-center gap-3 border rounded-xl p-4 cursor-pointer">
-                <RadioGroupItem value={item} />
-                {item}
+          <Label className={isArabic ? "text-right block" : ""}>
+            {t("companyForm.standSize")}
+          </Label>
+
+          <RadioGroup onValueChange={(val)=>setForm({...form,stand_size:val})} className="grid md:grid-cols-2 gap-4">
+            {[
+              {value:"4x4",label:t("companyForm.standSizes.4x4")},
+              {value:"2x4",label:t("companyForm.standSizes.2x4")},
+              {value:"Corner",label:t("companyForm.standSizes.corner")},
+              {value:"Custom",label:t("companyForm.standSizes.custom")},
+            ].map((item)=>(
+              <Label key={item.value} className={`flex items-center gap-3 border rounded-xl p-4 ${isArabic?"flex-row-reverse text-right":""}`}>
+                <RadioGroupItem value={item.value}/>
+                {item.label}
               </Label>
             ))}
           </RadioGroup>
 
           {/* LOCATION */}
-          <Label>Stand Location</Label>
-          <RadioGroup
-            onValueChange={(val) => setForm({ ...form, stand_location: val })}
-            className="grid md:grid-cols-3 gap-4"
-          >
-            {["Inside", "Side", "Front"].map((item) => (
-              <Label key={item} className="flex items-center gap-3 border rounded-xl p-4 cursor-pointer">
-                <RadioGroupItem value={item} />
-                {item}
+          <Label className={isArabic ? "text-right block" : ""}>
+            {t("companyForm.standLocation")}
+          </Label>
+
+          <RadioGroup onValueChange={(val)=>setForm({...form,stand_location:val})} className="grid md:grid-cols-3 gap-4">
+            {[
+              {value:"Inside",label:t("companyForm.standLocations.inside")},
+              {value:"Side",label:t("companyForm.standLocations.side")},
+              {value:"Front",label:t("companyForm.standLocations.front")},
+            ].map((item)=>(
+              <Label key={item.value} className={`flex items-center gap-3 border rounded-xl p-4 ${isArabic?"flex-row-reverse text-right":""}`}>
+                <RadioGroupItem value={item.value}/>
+                {item.label}
               </Label>
             ))}
           </RadioGroup>
@@ -237,20 +271,17 @@ export default function CompanyForm({ onSuccess }: Props) {
       )}
 
       {/* NOTES */}
-      <Textarea name="notes" placeholder="Notes..." onChange={handleChange} />
+      <Textarea name="notes" placeholder={t("companyForm.notes")} className={isArabic?"text-right":""} onChange={handleChange}/>
 
       {/* TERMS */}
-      <label className="flex items-center gap-2 text-sm">
-        <input type="checkbox" name="accepted" onChange={handleChange} />
-        I agree to terms
+      <label className={`flex items-center gap-2 text-sm ${isArabic ? "flex-row-reverse" : ""}`}>
+        <input type="checkbox" name="accepted" onChange={handleChange}/>
+        {t("companyForm.terms")}
       </label>
 
       {/* BUTTON */}
-      <Button
-        disabled={loading}
-        className="h-12 bg-[#C9A227] hover:bg-[#b8921f] text-white rounded-xl"
-      >
-        {loading ? <Loader2 className="animate-spin" /> : "Register Company"}
+      <Button className="h-12 bg-[#C9A227] text-white rounded-xl">
+        {loading ? <Loader2 className="animate-spin"/> : t("companyForm.submit")}
       </Button>
 
     </form>

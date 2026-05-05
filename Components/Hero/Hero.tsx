@@ -54,7 +54,7 @@ const Hero = () => {
         }}
       >
         <div className="absolute inset-0"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-[#0B0B0B]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-[#0b0b0b]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,162,39,0.08),transparent_55%)]"></div>
       </div>
 

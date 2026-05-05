@@ -5,8 +5,28 @@ import jsPDF from "jspdf";
 import QRCodeLib from "qrcode";
 import QRCode from "react-qr-code";
 
+import { useTranslation } from "react-i18next";
+import i18n from "@/lib/i18n/i18next";
+import { useEffect, useState } from "react";
+
 export default function CompanyVoucher({ ticket, onBack }: any) {
 
+  const { t } = useTranslation();
+  const [isArabic, setIsArabic] = useState(false);
+
+  useEffect(() => {
+    const updateLang = () => {
+      const isAr = i18n.language === "ar";
+      setIsArabic(isAr);
+      document.documentElement.dir = isAr ? "rtl" : "ltr";
+    };
+
+    updateLang();
+    i18n.on("languageChanged", updateLang);
+    return () => i18n.off("languageChanged", updateLang);
+  }, []);
+
+  // ✅ PDF reste en anglais
   const downloadVoucher = async () => {
     try {
       const pdf = new jsPDF({
@@ -15,16 +35,13 @@ export default function CompanyVoucher({ ticket, onBack }: any) {
         format: [400, 600],
       });
 
-      // BACKGROUND
       pdf.setFillColor(15, 23, 42);
       pdf.rect(0, 0, 400, 600, "F");
 
-      // TITLE
       pdf.setTextColor(255, 255, 255);
       pdf.setFontSize(20);
       pdf.text(`Welcome ${ticket.company_name}`, 200, 80, { align: "center" });
 
-      // SUBTEXT
       pdf.setTextColor(200, 200, 200);
       pdf.setFontSize(13);
       pdf.text(
@@ -34,12 +51,10 @@ export default function CompanyVoucher({ ticket, onBack }: any) {
         { align: "center" }
       );
 
-      // DATE
       pdf.setTextColor(201, 162, 39);
       pdf.setFontSize(12);
       pdf.text("08 — 10 JULY 2026", 200, 150, { align: "center" });
 
-      // QR DATA
       const qrData = JSON.stringify({
         company: ticket.company_name,
         email: ticket.email,
@@ -51,13 +66,11 @@ export default function CompanyVoucher({ ticket, onBack }: any) {
         margin: 1,
       });
 
-      // QR BOX
       pdf.setFillColor(255, 255, 255);
       pdf.roundedRect(110, 180, 180, 180, 20, 20, "F");
 
       pdf.addImage(qrImage, "PNG", 130, 200, 140, 140);
 
-      // FOOTER
       pdf.setTextColor(150, 150, 150);
       pdf.setFontSize(12);
 
@@ -75,13 +88,14 @@ export default function CompanyVoucher({ ticket, onBack }: any) {
   return (
     <div className="flex flex-col items-center text-center py-10">
 
-      {/* TITLE */}
-      <h2 className="text-2xl md:text-3xl font-bold mb-2">
-        🎉 Welcome {ticket.company_name}
+      {/* TITLE (LTR LOCKED) */}
+      <h2 dir="ltr" className="text-2xl md:text-3xl font-bold mb-2">
+        🎉 {t("companyVoucher.welcome")} {ticket.company_name}
       </h2>
 
+      {/* DESC */}
       <p className="text-gray-500 mb-8">
-        Your exhibitor registration is confirmed.
+        {t("companyVoucher.desc")}
       </p>
 
       {/* VOUCHER */}
@@ -95,21 +109,22 @@ export default function CompanyVoucher({ ticket, onBack }: any) {
         }}
       >
 
-        {/* HEADER */}
-        <h3 className="text-xl font-semibold text-[#C9A227] mb-2">
+        {/* HEADER (LTR LOCKED) */}
+        <h3 dir="ltr" className="text-xl font-semibold text-[#C9A227] mb-2">
           Perfume Expo Exhibitor
         </h3>
 
-        <p className="text-sm text-gray-400 mb-4">
+        {/* DATE (LTR LOCKED) */}
+        <p dir="ltr" className="text-sm text-gray-400 mb-4">
           08 — 10 July 2026
         </p>
 
         {/* TEXT */}
         <p style={{ color: "#d1d5db", fontSize: "14px", marginBottom: "20px" }}>
-          Present this QR code at the entrance.
+          {t("companyVoucher.qrText")}
         </p>
 
-        {/* ✅ QR CODE UI (FIX IMPORTANT) */}
+        {/* QR */}
         <div className="flex justify-center mb-6">
           <div style={{ background: "#ffffff", padding: "12px", borderRadius: "12px" }}>
             <QRCode
@@ -124,8 +139,8 @@ export default function CompanyVoucher({ ticket, onBack }: any) {
           </div>
         </div>
 
-        {/* USER */}
-        <div style={{ fontSize: "12px", color: "#9ca3af" }}>
+        {/* USER (LTR LOCKED 🔥 important) */}
+        <div dir="ltr" style={{ fontSize: "12px", color: "#9ca3af" }}>
           <p>{ticket.company_name}</p>
           <p>{ticket.email}</p>
           <p>{ticket.country}</p>
@@ -136,20 +151,25 @@ export default function CompanyVoucher({ ticket, onBack }: any) {
       {/* BUTTONS */}
       <div className="w-full max-w-md mt-6 space-y-3">
 
+        {/* DOWNLOAD (LTR) */}
         <button
+          dir="ltr"
           onClick={downloadVoucher}
           className="w-full flex items-center justify-center gap-2 bg-[#C9A227] text-white py-3 rounded-xl"
         >
           <Download size={16} />
-          Download Voucher
+          {t("companyVoucher.download")}
         </button>
 
+        {/* BACK (RTL friendly) */}
         <button
           onClick={onBack}
-          className="w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-xl"
+          className={`w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-xl ${
+            isArabic ? "flex-row-reverse" : ""
+          }`}
         >
           <ArrowLeft size={16} />
-          Back
+          {t("companyVoucher.back")}
         </button>
 
       </div>

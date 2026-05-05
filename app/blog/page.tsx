@@ -11,8 +11,8 @@ export default function page() {
       <NavLight/>
       <Hero/>
       <BlogCards/>
-          <ScrollToTopButton/>
-        <WhatsappButtons/>
+      <ScrollToTopButton/>
+      <WhatsappButtons/>
 
       <Footer/>
     </div>

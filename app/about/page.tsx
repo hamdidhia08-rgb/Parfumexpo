@@ -11,6 +11,7 @@ import ScrollToTopButton from '@/Components/ScrollToTopButton'
 import WhatsappButtons from '@/Components/WhatsappButtons'
 import Footer from '@/Components/Footer/footer'
 import HeroBanner from '@/Components/Banners/HeroBanner'
+import TopBar from '@/Components/Navbar/TopBar'
 
 export default function page() {
   return (

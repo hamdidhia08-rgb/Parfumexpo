@@ -36,21 +36,14 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <div >
       <Navbar />
 
       {/* HERO */}
 
         <Hero />
         <About/>
-       <div className="hidden md:block">
-        <br /><br />
-      </div>
-      {/* BRANDS */}
-      <div data-aos="fade-up" data-aos-delay="100">
-        <BrandCarousel />
-      </div>
-
+    
    
 
       {/* CARDS */}
@@ -73,6 +66,6 @@ export default function Home() {
         <WhatsappButtons/>
 
 
-    </>
+    </div>
   );
 }

@@ -50,5 +50,506 @@
     "title": "Unique Experiences",
     "desc": "Enjoy workshops, perfume creation, and interactive fragrance activities."
   }
+},
+"register": {
+    "badge": "Registration Options",
+    "title1": "Choose Your",
+    "title2": "Experience",
+    "desc": "Join the perfume exhibition as a visitor or exhibitor and discover exclusive opportunities.",
+    "visitor": {
+      "badge": "VISITOR ACCESS",
+      "title": "Discover Luxury Fragrances",
+      "desc": "Explore premium perfumes and exclusive fragrance experiences.",
+      "button": "Register Now"
+    },
+    "business": {
+      "badge": "BUSINESS ACCESS",
+      "title": "Showcase Your Brand",
+      "desc": "Present your products and connect with international buyers.",
+      "button": "Register Now"
+    }
+  },
+  "schedule": {
+    "badge": "Exclusive Event Schedule",
+    "title1": "Explore our premium",
+    "title2": "international event program",
+    "footer": "Join our team and help weave innovation worldwide.",
+    "days": {
+      "day1": "Day 01",
+      "day2": "Day 02",
+      "day3": "Day 03"
+    },
+    "data": {
+ "day1": [
+  {
+    "id": 1,
+    "title": "Official Opening of the International Perfume Exhibition",
+    "desc": "The exhibition begins with the حضور of leading experts and global luxury brands, offering insights into the latest trends in the high-end fragrance industry and delivering unique sensory experiences for visitors.",
+    "date": "August 18, 2024",
+    "time": "09:00 - 10:30",
+    "location": "Main Hall",
+    "image": "/images/exemple1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Exploration Tour of Luxury Brand Pavilions",
+    "desc": "Discover the latest creations from international perfume houses and explore rare ingredients and advanced composition techniques through an immersive and interactive experience.",
+    "date": "August 18, 2024",
+    "time": "10:30 - 14:00",
+    "location": "Main Exhibition Area",
+    "image": "/images/2151623430_copy.webp"
+  },
+  {
+    "id": 3,
+    "title": "Perfume Creation Workshop",
+    "desc": "An exclusive hands-on workshop where participants learn the art of fragrance composition, blending notes under the guidance of expert perfumers.",
+    "date": "August 18, 2024",
+    "time": "14:30 - 17:30",
+    "location": "Creative Workshop Hall",
+    "image": "/images/Blog/blog1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Exclusive Perfume Evening & Sensory Experience",
+    "desc": "Enjoy a luxurious evening designed for VIP guests, featuring live fragrance showcases, sensory tasting experiences of rare notes, and networking opportunities with global perfume experts.",
+    "date": "August 18, 2024",
+    "time": "18:00 - 21:00",
+    "location": "VIP Lounge",
+    "image": "/images/interactive-process-image-1.jpg"
+  }
+],
+"day2": [
+  {
+    "id": 1,
+    "title": "Official Opening of the International Perfume Exhibition",
+    "desc": "The exhibition begins with the حضور of leading experts and global luxury brands, offering insights into the latest trends in the high-end fragrance industry and delivering unique sensory experiences for visitors.",
+    "date": "August 18, 2024",
+    "time": "09:00 - 10:30",
+    "location": "Main Hall",
+    "image": "/images/exemple1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Exploration Tour of Luxury Brand Pavilions",
+    "desc": "Discover the latest creations from international perfume houses and explore rare ingredients and advanced composition techniques through an immersive and interactive experience.",
+    "date": "August 18, 2024",
+    "time": "10:30 - 14:00",
+    "location": "Main Exhibition Area",
+    "image": "/images/2151623430_copy.webp"
+  },
+  {
+    "id": 3,
+    "title": "Perfume Creation Workshop",
+    "desc": "An exclusive hands-on workshop where participants learn the art of fragrance composition, blending notes under the guidance of expert perfumers.",
+    "date": "August 18, 2024",
+    "time": "14:30 - 17:30",
+    "location": "Creative Workshop Hall",
+    "image": "/images/Blog/blog1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Exclusive Perfume Evening & Sensory Experience",
+    "desc": "Enjoy a luxurious evening designed for VIP guests, featuring live fragrance showcases, sensory tasting experiences of rare notes, and networking opportunities with global perfume experts.",
+    "date": "August 18, 2024",
+    "time": "18:00 - 21:00",
+    "location": "VIP Lounge",
+    "image": "/images/interactive-process-image-1.jpg"
+  }
+],
+"day3": [
+  {
+    "id": 1,
+    "title": "Official Opening of the International Perfume Exhibition",
+    "desc": "The exhibition begins with the حضور of leading experts and global luxury brands, offering insights into the latest trends in the high-end fragrance industry and delivering unique sensory experiences for visitors.",
+    "date": "August 18, 2024",
+    "time": "09:00 - 10:30",
+    "location": "Main Hall",
+    "image": "/images/exemple1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Exploration Tour of Luxury Brand Pavilions",
+    "desc": "Discover the latest creations from international perfume houses and explore rare ingredients and advanced composition techniques through an immersive and interactive experience.",
+    "date": "August 18, 2024",
+    "time": "10:30 - 14:00",
+    "location": "Main Exhibition Area",
+    "image": "/images/2151623430_copy.webp"
+  },
+  {
+    "id": 3,
+    "title": "Perfume Creation Workshop",
+    "desc": "An exclusive hands-on workshop where participants learn the art of fragrance composition, blending notes under the guidance of expert perfumers.",
+    "date": "August 18, 2024",
+    "time": "14:30 - 17:30",
+    "location": "Creative Workshop Hall",
+    "image": "/images/Blog/blog1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Exclusive Perfume Evening & Sensory Experience",
+    "desc": "Enjoy a luxurious evening designed for VIP guests, featuring live fragrance showcases, sensory tasting experiences of rare notes, and networking opportunities with global perfume experts.",
+    "date": "August 18, 2024",
+    "time": "18:00 - 21:00",
+    "location": "VIP Lounge",
+    "image": "/images/interactive-process-image-1.jpg"
+  }
+]
+    }
+  },
+  
+  "hero2": {
+    "label": "PERFUME EXPO",
+
+    "title1": "The Art of Fragrance in Istanbul",
+
+    "desc1": "The Fragrance Expo returns to Istanbul after more than 20 years, bringing together perfume creators, brands, and experts from around the world. With its strategic location and global importance, Istanbul offers the perfect environment for innovation, business, and luxury experiences. More than 90 exhibitors and sponsors will showcase the latest trends in perfumery, creating a unique event that blends elegance, creativity, and networking opportunities.",
+
+    "organizer": "The event is organized by",
+    "company": "Aşk Istanbul",
+    "by": "under the supervision of",
+    "person": "SEMIRE SARHAN",
+
+    "ticks": [
+      "Global gathering of perfume brands and experts",
+      "More than 90 international exhibitors",
+      "July 8 – 10, 2026 in Istanbul"
+    ],
+
+    "location": "WOW HOTEL ISTANBUL",
+
+    "title2": "The Fragrance Expo in Istanbul",
+
+    "desc2": "The Fragrance Expo takes place at WOW Hotel Istanbul across a space exceeding 1400 m², bringing together more than 90 exhibitors and sponsors from around the world in a refined professional environment. The event features interactive activities and unique experiences, offering an exceptional opportunity for fragrance professionals and enthusiasts to build partnerships and discover the latest innovations.",
+
+    "features": [
+      {
+        "title": "Luxury Atmosphere",
+        "desc": "A refined environment blending elegance and creativity."
+      },
+      {
+        "title": "Strategic Location",
+        "desc": "Hosted in Istanbul, a global hub for business and tourism."
+      },
+      {
+        "title": "90+ Exhibitors",
+        "desc": "International brands, experts, and perfume creators."
+      },
+      {
+        "title": "Exclusive Experience",
+        "desc": "Interactive activities and premium networking opportunities."
+      }
+    ]
+  },
+  "team": {
+  "title": "Meet Our Team",
+  "desc": "A passionate team committed to innovation, elegance, and delivering exceptional value.",
+"members": [
+  {
+    "name": "Semire Şarhan",
+    "role": "General Manager",
+    "image": "/images/team/img1.jpeg",
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "phone": "21612345678"
+  },
+  {
+    "name": "Seher Arslan",
+    "role": "General Manager of Aşk Istanbul",
+    "image": "/images/team/img2.jpeg",
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "phone": "21698765432"
+  },
+  {
+    "name": "Abdulkadir Şarhan",
+    "role": "Operations Director",
+    "image": "/images/team/img4.jpeg",
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "phone": "21655555555"
+  },
+  {
+    "name": "Khaled Zia",
+    "role": "Operations Manager",
+    "image": "/images/team/img5.jpeg",
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "phone": "21644444444"
+  }
+]
+},
+"footer": {
+  "desc": "Discover a unique experience in the world of perfumes. Elegance, luxury, and quality combined to offer you the best.",
+  "nav": "Navigation",
+  "home": "Home",
+  "register": "Register",
+  "about": "About",
+  "contact": "Contact",
+  "support": "Support",
+  "faq": "FAQ",
+  "shipping": "Shipping",
+  "policy": "Policy",
+  "terms": "Terms",
+  "newsletter": "Newsletter",
+  "newsDesc": "Subscribe to receive the latest offers and updates.",
+  "placeholder": "Your email",
+  "btn": "OK",
+  "copy": "© {{year}} Perfume Expo. All rights reserved."
 }
+,
+  "hero3": {
+    "home": "Home",
+    "about": "About",
+    "register": "Register",
+    "blog": "Blog",
+    "contact": "Contact",
+
+    "homeTitle": "Luxury Fragrance Expo Experience",
+    "aboutTitle": "About Our Expo Vision",
+    "registerTitle": "Join Our Exclusive Expo",
+    "blogTitle": "Fragrance Insights & Trends",
+    "contactTitle": "Contact Our Team",
+
+    "defaultTitle": "Welcome"
+  },
+    "about2": {
+    "badge": "Expo Activities",
+    "title1": "Discover Our",
+    "title2": "Experiences",
+    "desc": "The Fragrance Expo returns to Istanbul after more than 20 years. Discover global perfume brands, experts, and the latest innovations. Explore a world of luxury, creativity, and new opportunities.",
+
+    "card1": {
+      "title": "Perfume Bazaar",
+      "desc": "Shop perfumes directly from top brands, including luxury oils and incense."
+    },
+    "card2": {
+      "title": "Create Your Perfume",
+      "desc": "Create your own signature scent with expert guidance."
+    },
+    "card3": {
+      "title": "Fragrance Parade",
+      "desc": "Enjoy a vibrant show filled with luxury and celebration."
+    },
+    "card4": {
+      "title": "Perfume Studio",
+      "desc": "Capture creative moments in perfume-inspired spaces."
+    }
+  },
+    "finalAbout": {
+    "badge": "Perfume Expo Istanbul",
+    "title1": "An Invitation to Discover",
+    "title2": "Fragrance Beyond Limits",
+
+    "desc1": "Step into a world where every scent tells a story and every note awakens emotion. Our exhibition in Istanbul is more than an event — it is a destination where creativity, luxury, and innovation meet to redefine the art of perfumery.",
+
+    "desc2": "Whether you are a brand, a creator, or a passionate enthusiast, this is your opportunity to explore rare compositions, connect with global experts, and experience fragrance in its most refined form.",
+
+    "cta": "Join the Experience"
+  },
+    "heroBanner": {
+    "title1": "Discover the Essence of",
+    "title2": "Luxury Fragrance",
+    "desc": "Step into a refined world where scent becomes art and elegance defines every moment.",
+    "cta": "Register Now"
+  },
+   "map": {
+    "title": "Visit Us in Istanbul",
+    "address": "Yeşilköy, Atatürk Airport Road No:15-17-19, Bakırköy / Istanbul"
+  },
+  "register2": {
+  "badge": "Join The Experience",
+  "title1": "Register for the",
+  "title2": "Perfume Expo",
+  "desc": "Secure your place in the most exclusive fragrance exhibition.",
+  "visitor": "Visitor",
+  "exhibitor": "Exhibitor"
+},
+"visitorForm": {
+  "fullName": "Full Name",
+  "email": "Email Address",
+  "phone": "Mobile Number",
+  "firstVisit": "Is this your first visit?",
+  "source": "How did you hear about the exhibition?",
+ "country": "Select Country",
+  "terms": "I agree to the terms and conditions",
+  "submit": "Register as Visitor",
+
+  "success": "Registered successfully 🎉",
+  "error": "Something went wrong",
+
+  "errors": {
+    "name": "Full name is required",
+    "email": "Email is required",
+    "country": "Country is required",
+    "terms": "You must accept the terms"
+  },
+
+  "interests": {
+    "perfume": "Perfume",
+    "trade": "Trade",
+    "investment": "Investment"
+  }
+},
+  "companyForm": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "title": "Title (Mr / Mrs)",
+    "position": "Position",
+
+    "email": "Email Address",
+    "mobile": "Mobile Number",
+    "companyPhone": "Company Phone",
+    "fax": "Fax",
+
+    "company": "Company Name",
+    "city": "City",
+    "region": "Region",
+    "postal": "Postal Code",
+    "address": "Address",
+
+    "website": "Website",
+
+    "activityTitle": "Activity Type",
+
+    "terms": "I agree to the terms and conditions",
+    "submit": "Register Company",
+
+    "success": "Registered successfully 🎉",
+    "error": "Something went wrong",
+
+    "errors": {
+      "firstName": "First name is required",
+      "email": "Email is required",
+      "company": "Company name is required",
+      "terms": "You must accept the terms"
+    },
+
+    "activity": {
+      "perfume": "Perfume",
+      "factory": "Factory",
+      "packaging": "Packaging",
+      "oils": "Oils",
+      "privateLabel": "Private Label",
+      "other": "Other"
+    },
+      "standQuestion": "Do you want a stand?",
+  "standType": "Stand Type",
+  "standSize": "Stand Size",
+  "standLocation": "Stand Location",
+
+  "notes": "Notes...",
+
+  "yes": "Yes",
+  "no": "No",
+
+  "standTypes": {
+    "economy": "Economy",
+    "standard": "Standard",
+    "premium": "Premium"
+  },
+
+  "standSizes": {
+    "4x4": "4x4",
+    "2x4": "2x4",
+    "corner": "Corner",
+    "custom": "Custom"
+  },
+
+  "standLocations": {
+    "inside": "Inside",
+    "side": "Side",
+    "front": "Front"
+  }
+  },
+  "voucher": {
+  "thank": "Thank You,",
+  "desc": "Your registration is confirmed. Here is your digital invitation.",
+  "qrText": "Present this QR code at the entrance.",
+  "download": "Download Voucher",
+  "back": "Back to Register"
+},
+"companyVoucher": {
+  "welcome": "Welcome",
+  "desc": "Your exhibitor registration is confirmed.",
+  "qrText": "Present this QR code at the entrance.",
+  "download": "Download Voucher",
+  "back": "Back"
+},
+ "blog": {
+    "month1": "April 2026",
+    "month2": "April 2026",
+    "month3": "April 2026",
+    "recentPosts": "Recent Posts",
+    "author1": "Perfume Expo Team",
+    "author2": "Expo News",
+    "author3": "Industry Insights",
+
+    "category1": "Exhibition",
+    "category2": "Events",
+    "category3": "Business",
+
+    "title1": "Perfume Expo Istanbul 2026 Officially Announced",
+    "title2": "A Unique Fragrance Experience with Global Participation",
+    "title3": "Expanding Opportunities in the Fragrance Industry",
+
+    "desc1": "The international Perfume Expo Istanbul will take place from July 8 to 10, 2026, bringing together the global fragrance industry in one of the world's leading business and tourism hubs.",
+    "desc2": "Held at WOW Istanbul Hotel over 1400 m², the expo will host 90+ international exhibitors and welcome over 10,000 visitors, offering interactive experiences and strong business opportunities.",
+    "desc3": "Organized by Aşk Istanbul under the leadership of SEMIRE SARHAN, the event creates a powerful platform for networking, innovation, and growth in the global perfume market.",
+
+    "readMore": "Read more",
+    "comments": "0 comments"
+  },
+  "blogDetail": {
+    "title1": "Perfume Expo Istanbul 2026 Officially Announced",
+    "title2": "A Unique Fragrance Experience with Global Participation",
+    "title3": "Expanding Opportunities in the Fragrance Industry",
+
+    "desc1": "The international Perfume Expo Istanbul will take place from July 8 to 10, 2026, bringing together global perfume brands, experts, and innovators in one of the world’s most dynamic cities.",
+    "desc2": "Hosted at WOW Istanbul Hotel across more than 1400 m², the expo will feature over 90 international exhibitors and welcome thousands of visitors with immersive fragrance experiences.",
+    "desc3": "Organized by Aşk Istanbul under the leadership of SEMIRE SARHAN, the event creates powerful opportunities for networking, innovation, and growth in the global perfume industry.",
+
+    "back": "Back to Blog",
+    "return": "Return to Blog",
+
+    "point1Title": "Luxury Fragrance Experience",
+    "point1Desc": "Discover premium perfumes crafted by international experts.",
+
+    "point2Title": "Global Networking",
+    "point2Desc": "Connect with brands, creators, and distributors worldwide.",
+
+    "point3Title": "Innovation & Trends",
+    "point3Desc": "Explore the latest trends shaping the future of perfumery.",
+
+    "extra": "This exhibition offers a unique opportunity to explore the world of fragrance, combining elegance, creativity, and business opportunities in one unforgettable experience."
+  },
+  "blogHeader": {
+  "author": "By Khaled Zia",
+  "date": "April 2026",
+  "readTime": "3 Mins Read"
+},
+"contact": {
+  "badge": "Contact Us",
+  "title": "Get in touch with our team anytime today",
+  "desc": "Our team is always here to listen and support you.",
+  "call": "Call Now!",
+  "email": "E-mail Us!",
+  "location": "Our Location!",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "phone": "Mobile Number",
+  "emailInput": "E-mail Address",
+  "message": "Write your message here...",
+  "submit": "Send A Message",
+  "sending": "Sending...",
+  "success": "Message sent successfully!",
+  "error": "Something went wrong",
+  "errors": {
+    "required": "Email and message are required"
+  }
+}
+
 }

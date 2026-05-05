@@ -1,58 +1,76 @@
-"use client";
+'use client';
 
-import { Inter } from "next/font/google";
+import { Inter, Cairo } from "next/font/google";
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import i18n from "@/lib/i18n/i18next";
+import { useEffect, useState } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
+const cairo = Cairo({
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export default function Footer() {
+  const { t } = useTranslation();
+  const [isArabic, setIsArabic] = useState(false);
+
+  useEffect(() => {
+    const updateLang = () => {
+      const isAr = i18n.language === "ar";
+      setIsArabic(isAr);
+      document.documentElement.dir = isAr ? "rtl" : "ltr";
+    };
+
+    updateLang();
+    i18n.on("languageChanged", updateLang);
+    return () => i18n.off("languageChanged", updateLang);
+  }, []);
+
   return (
-    <footer className={`${inter.className} relative bg-[#121211] text-white px-6 md:px-16 py-14 overflow-hidden`}>
+    <footer
+      dir={isArabic ? "rtl" : "ltr"}
+      className={`${isArabic ? cairo.className : inter.className} relative bg-[#121211] text-white px-6 md:px-16 py-14 overflow-hidden`}
+    >
 
-<div className="absolute inset-0 pointer-events-none opacity-20">
-  <Image
-    src="/images/patern.webp"
-    alt="background pattern"
-    fill
-    className="object-center"
-  />
-</div>
-      {/* DARK OVERLAY (important pour lisibilité) */}
+      {/* BG */}
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <Image
+          src="/images/patern.webp"
+          alt="background pattern"
+          fill
+          className="object-center"
+        />
+      </div>
 
-      {/* CONTENT */}
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-12">
 
-        {/* LOGO + DESCRIPTION */}
-        <div>
-          <Link href="/" className="flex items-center gap-3 group mb-4">
+        {/* LOGO */}
+        <div className={`${isArabic ? "text-right" : ""}`}>
+          <Link href="/" className={`flex items-center gap-3 group mb-4 ${isArabic ? "" : ""}`}>
             
             <div className="w-10 h-10 rounded-full bg-[#C9A227] flex items-center justify-center shadow-lg shadow-[#C9A227]/20">
-              <Image
-                src="/images/icon.png"
-                alt="Logo"
-                width={35}
-                height={35}
-                className="object-contain"
-              />
+              <Image src="/images/icon.png" alt="Logo" width={35} height={35} />
             </div>
 
-            <span className="text-2xl font-bold tracking-tight transition-colors duration-300 text-white group-hover:text-[#C9A227]">
-              Perfum Expo
-              <span className="text-[#C9A227]">.</span>
+            <span className="text-2xl font-bold tracking-tight transition-colors duration-300 group-hover:text-[#C9A227]">
+              {t('brand.name')}<span className="text-[#C9A227]">.</span>
             </span>
           </Link>
 
           <p className="text-gray-400 text-sm leading-relaxed">
-            Discover a unique experience in the world of perfumes.
-            Elegance, luxury, and quality combined to offer you the best.
+            {t("footer.desc")}
           </p>
 
-          <div className="flex gap-4 mt-6">
+          {/* SOCIAL */}
+          <div className={`flex gap-4 mt-6 ${isArabic ? "" : ""}`}>
             {[FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn].map((Icon, i) => (
               <a
                 key={i}
@@ -65,43 +83,44 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* LINKS 1 */}
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Navigation</h2>
+        {/* NAVIGATION */}
+        <div className={`${isArabic ? "text-right" : ""}`}>
+          <h2 className="text-lg font-semibold mb-4">{t("footer.nav")}</h2>
           <ul className="space-y-2 text-gray-400 text-sm">
-            <li><a href="#" className="hover:text-white transition">Home</a></li>
-            <li><a href="#" className="hover:text-white transition">Register</a></li>
-            <li><a href="#" className="hover:text-white transition">About</a></li>
-            <li><a href="#" className="hover:text-white transition">Contact</a></li>
+            <li><a href="#" className="hover:text-white transition">{t("footer.home")}</a></li>
+            <li><a href="#" className="hover:text-white transition">{t("footer.register")}</a></li>
+            <li><a href="#" className="hover:text-white transition">{t("footer.about")}</a></li>
+            <li><a href="#" className="hover:text-white transition">{t("footer.contact")}</a></li>
           </ul>
         </div>
 
-        {/* LINKS 2 */}
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Support</h2>
+        {/* SUPPORT */}
+        <div className={`${isArabic ? "text-right" : ""}`}>
+          <h2 className="text-lg font-semibold mb-4">{t("footer.support")}</h2>
           <ul className="space-y-2 text-gray-400 text-sm">
-            <li><a href="#" className="hover:text-white transition">FAQ</a></li>
-            <li><a href="#" className="hover:text-white transition">Shipping</a></li>
-            <li><a href="#" className="hover:text-white transition">Policy</a></li>
-            <li><a href="#" className="hover:text-white transition">Terms</a></li>
+            <li><a href="#" className="hover:text-white transition">{t("footer.faq")}</a></li>
+            <li><a href="#" className="hover:text-white transition">{t("footer.shipping")}</a></li>
+            <li><a href="#" className="hover:text-white transition">{t("footer.policy")}</a></li>
+            <li><a href="#" className="hover:text-white transition">{t("footer.terms")}</a></li>
           </ul>
         </div>
 
         {/* NEWSLETTER */}
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Newsletter</h2>
+        <div className={`${isArabic ? "text-right" : ""}`}>
+          <h2 className="text-lg font-semibold mb-4">{t("footer.newsletter")}</h2>
+
           <p className="text-gray-400 text-sm mb-4">
-            Subscribe to receive the latest offers and updates.
+            {t("footer.newsDesc")}
           </p>
 
-          <div className="flex items-center bg-white rounded-lg overflow-hidden">
+          <div className={`flex items-center bg-white rounded-lg overflow-hidden ${isArabic ? "flex-row-reverse" : ""}`}>
             <input
               type="email"
-              placeholder="Your email"
-              className="w-full px-4 py-2 text-black outline-none"
+              placeholder={t("footer.placeholder")}
+              className="w-full px-4 py-2 text-black outline-none text-sm"
             />
             <button className="bg-[#C9A227] text-black px-4 py-2 font-semibold hover:bg-yellow-400 transition">
-              OK
+              {t("footer.btn")}
             </button>
           </div>
         </div>
@@ -110,8 +129,9 @@ export default function Footer() {
 
       {/* BOTTOM */}
       <div className="relative z-10 border-t border-gray-800 mt-12 pt-6 text-center text-gray-400 text-sm">
-        © {new Date().getFullYear()} Perfume Expo. All rights reserved.
+        {t("footer.copy", { year: new Date().getFullYear() })}
       </div>
+
     </footer>
   );
 }

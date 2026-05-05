@@ -1,130 +1,205 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, Building2, Users } from 'lucide-react';
-import { Inter } from "next/font/google";
+import { Inter, Cairo } from "next/font/google";
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import i18n from '@/lib/i18n/i18next';
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
+const cairo = Cairo({
+  subsets: ["arabic"],
+  weight: ["400", "500", "600"], // ✅ plus léger que avant
+});
+
 const RegisterCards = () => {
+  const { t } = useTranslation();
+  const [isArabic, setIsArabic] = useState(false);
+
+  useEffect(() => {
+    const updateLang = () => {
+      const isAr = i18n.language === 'ar';
+      setIsArabic(isAr);
+      document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+    };
+
+    updateLang();
+    i18n.on('languageChanged', updateLang);
+    return () => i18n.off('languageChanged', updateLang);
+  }, []);
+
   const cards = [
     {
       icon: Users,
-      badge: 'VISITOR ACCESS',
-      title: 'Discover Luxury Fragrances',
-      desc: 'Register as a visitor and explore exclusive perfume brands, premium scents, and live fragrance experiences.',
-      button: 'Register Now',
+      badge: t("register.visitor.badge"),
+      title: t("register.visitor.title"),
+      desc: t("register.visitor.desc"),
+      button: t("register.visitor.button"),
     },
     {
       icon: Building2,
-      badge: 'BUSINESS ACCESS',
-      title: 'Showcase Your Brand',
-      desc: 'Register as a company and present your perfume house, products, and connect with global buyers.',
-      button: 'Register Now',
+      badge: t("register.business.badge"),
+      title: t("register.business.title"),
+      desc: t("register.business.desc"),
+      button: t("register.business.button"),
     },
   ];
 
   return (
-    <section className={`${inter.className} w-full bg-white py-10 px-4 md:px-8`}>
+    <section className={`${isArabic ? cairo.className : inter.className} w-full bg-white py-8 px-4 md:px-8`}>
+      {/* TOP LEFT IMAGE */}
+<img
+  src={isArabic ? "/images/pen-ar.png" : "/images/pen.png"} // ✅ image arabe
+  alt="decoration"
+  className={`
+    hidden md:block
+    absolute top-0 md:top-10
+    ${isArabic ? "right-0 md:right-0" : "left-0 md:left-0"}
+    w-44 md:w-70
+    opacity-90
+    pointer-events-none select-none
+  `}
+/>
+ {/* TOP RIGHT IMAGE */}
+ <img
+  src={isArabic ? "/images/right-ar.png" : "/images/right.png"} // ✅ image arabe
+  alt="right decoration"
+  className={`
+    hidden md:block
+    absolute top-0 md:top-13
+    ${isArabic ? "left-0 md:left-20" : "right-0 md:right-30"}
+    w-32 md:w-20
+    opacity-90
+    pointer-events-none select-none
+  `}
+/>
+{/* TITLE */}
+<div className="relative text-center mb-20">
 
-      {/* TITLE */}
-      <div className="text-center mb-12">
-        
-        <p className="text-[#C9A227] text-sm tracking-widest uppercase mb-3">
-          Registration Options
-        </p>
+  {/* BACKGROUND BIG TEXT */}
+  <h1 className="absolute inset-0 flex items-center justify-center 
+    text-[80px] md:text-[140px] font-bold 
+    text-gray-200/40 
+    tracking-widest uppercase 
+    pointer-events-none select-none">
+    REGISTER
+  </h1>
 
-        <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.03em] leading-[1.1]">
-          Choose Your{" "}
-          <span className="text-[#C9A227] drop-shadow-[0_0_20px_rgba(201,162,39,0.3)]">
-            Experience
-          </span>
-        </h2>
+  {/* CONTENT */}
+  <div className="relative z-10 pt-20 md:pt-45">
 
-        <p className="text-gray-500 mt-4 max-w-xl mx-auto text-sm md:text-base">
-          Join the Perfume Expo as a visitor or exhibitor and unlock exclusive opportunities.
-        </p>
+<p
+  className={`
+    text-[#C9A227]
+    mb-3
+    ${isArabic 
+      ? "text-lg md:text-xl tracking-normal font-semibold" 
+      : "text-sm tracking-widest uppercase"}
+  `}
+>
+  {t("register.badge")}
+</p>
 
-      </div>
+    {/* Title */}
+    <h2 className="text-4xl md:text-5xl leading-[1.1] tracking-[-0.02em] font-bold">
+      {t("register.title1")}{" "}
+      <span className="text-[#C9A227] drop-shadow-[0_0_20px_rgba(201,162,39,0.3)]">
+        {t("register.title2")}
+      </span>
+    </h2>
 
-      {/* CARDS */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5">
+    {/* Description */}
+    <p className="text-gray-500 mt-4 max-w-xl mx-auto text-sm md:text-base">
+      {t("register.desc")}
+    </p>
 
-        {cards.map((card, index) => {
-          const Icon = card.icon;
+  </div>
 
-          return (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-2xl border border-gray-200 
-              bg-gradient-to-br from-white to-[#fafafa]
-              min-h-[260px] p-6 md:p-7
-              flex flex-col justify-between
-              transition-all duration-500
-              hover:-translate-y-1 hover:shadow-xl"
-            >
+</div>
 
-              {/* Glow */}
-              <div className="absolute -top-10 -right-10 w-56 h-56 
-              bg-[#C9A227]/10 blur-3xl rounded-full 
-              opacity-70
-              animate-[pulse_6s_ease-in-out_infinite]
-              group-hover:opacity-100
-              group-hover:scale-110
-              transition-all duration-700"></div>
+ {/* CARDS */}
+<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
-              {/* Hover Light */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
-              bg-[radial-gradient(circle_at_30%_20%,rgba(201,162,39,0.10),transparent_55%)]"></div>
+  {cards.map((card, index) => {
+    const images = [
+      "/images/icons/visitor.png",
+      "/images/icons/building.png",
+    ];
 
-              {/* Content */}
-              <div className="relative z-10">
+    return (
+      <div
+        key={index}
+        className={`group relative rounded-2xl border border-gray-200 bg-white 
+        px-6 py-6 md:px-7 md:py-6
+        flex flex-col items-center text-center
+        shadow-[-8px_10px_25px_rgba(0,0,0,0.08)]
+        transition-all duration-300
+        hover:-translate-y-1 hover:border-[#C9A227]/70 
+        hover:shadow-[-12px_16px_35px_rgba(0,0,0,0.12)]
+        ${isArabic ? "text-right" : ""}`}
+      >
 
-                {/* Badge */}
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="p-2 rounded-full bg-[#C9A227]/10 text-[#C9A227]">
-                    <Icon className="w-4 h-4" />
-                  </div>
-
-                  <p className="text-[#C9A227] text-[11px] tracking-[0.25em] font-semibold">
-                    {card.badge}
-                  </p>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-[#111111] text-2xl md:text-3xl font-semibold leading-snug mb-3 tracking-tight">
-                  {card.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm md:text-[15px] leading-relaxed max-w-lg">
-                  {card.desc}
-                </p>
-              </div>
-
-          <div className="relative z-10 mt-6">
-          <Link
-            href="/Register"  
-            className="group/btn inline-flex items-center gap-2
-            bg-[#C9A227] hover:bg-[#ddb83a]
-            text-white font-medium text-sm
-            px-5 py-2.5 rounded-full
-            transition-all duration-300
-            shadow-[0_8px_25px_rgba(201,162,39,0.18)]"
-          >
-            {card.button}
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition" />
-          </Link>
+        {/* IMAGE */}
+        <div className="mb-4">
+          <img
+            src={images[index]}
+            alt="option"
+            className="w-16 h-16 object-contain mx-auto"
+          />
         </div>
+            <p
+              className={`
+                text-[#C9A227]
+                mb-2
+                ${isArabic 
+                  ? "text-[15px] tracking-normal font-semibold" 
+                  : "text-[10px] tracking-[0.2em] uppercase font-semibold"}
+              `}
+            >
+              {card.badge}
+            </p>
 
-            </div>
-          );
-        })}
+        {/* TITLE */}
+        <h3 className="text-xl md:text-2xl font-semibold text-[#111] mb-2">
+          {card.title}
+        </h3>
+<p
+  className="
+    text-gray-500
+    text-[13px] md:text-[14px]
+    leading-relaxed
+    mb-4
+    max-w-xs
+    text-center
+    mx-auto
+  "
+>
+  {card.desc}
+</p>
+
+        {/* BUTTON */}
+        <Link
+          href="/Register"
+          className="inline-flex items-center gap-2
+          bg-[#C9A227] hover:bg-[#b8961f]
+          text-white text-[13px]
+          px-5 py-2 rounded-full
+          transition-all duration-300"
+        >
+          {card.button}
+          <ArrowRight className={`${isArabic ? "rotate-180" : ""} w-3.5 h-3.5`} />
+        </Link>
 
       </div>
+    );
+  })}
+
+</div>
     </section>
   );
 };

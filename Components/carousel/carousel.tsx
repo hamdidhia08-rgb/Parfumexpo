@@ -3,7 +3,8 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import i18n from '@/lib/i18n/i18next';
 
 const brands = [
   '/images/brand/Chanel_logo_complet.png',
@@ -15,10 +16,23 @@ const brands = [
 ];
 
 export default function BrandCarousel() {
+  const [isArabic, setIsArabic] = useState(false);
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: 'start',
+    direction: isArabic ? 'rtl' : 'ltr', // ✅ FIX RTL
   });
+
+  useEffect(() => {
+    const updateLang = () => {
+      setIsArabic(i18n.language === 'ar');
+    };
+
+    updateLang();
+    i18n.on('languageChanged', updateLang);
+    return () => i18n.off('languageChanged', updateLang);
+  }, []);
 
   const scrollPrev = useCallback(() => {
     emblaApi?.scrollPrev();
@@ -33,35 +47,42 @@ export default function BrandCarousel() {
 
       {/* LEFT */}
       <button
-        onClick={scrollPrev}
+        onClick={isArabic ? scrollNext : scrollPrev} // ✅ inversion RTL
         className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/5 border border-black/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-white transition"
       >
-        <ChevronLeft className="w-5 h-5" />
+        {isArabic ? (
+          <ChevronRight className="w-5 h-5" />
+        ) : (
+          <ChevronLeft className="w-5 h-5" />
+        )}
       </button>
 
       {/* RIGHT */}
       <button
-        onClick={scrollNext}
+        onClick={isArabic ? scrollPrev : scrollNext} // ✅ inversion RTL
         className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/5 border border-black/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-white transition"
       >
-        <ChevronRight className="w-5 h-5" />
+        {isArabic ? (
+          <ChevronLeft className="w-5 h-5" />
+        ) : (
+          <ChevronRight className="w-5 h-5" />
+        )}
       </button>
 
       {/* CAROUSEL */}
       <div ref={emblaRef}>
-        <div className="flex px-4 md:px-10"> {/* ✅ padding inline global */}
+        <div className="flex px-4 md:px-10">
 
           {brands.map((src, index) => (
             <div
               key={index}
               className="
-                flex-[0_0_50%]   /* mobile = 2 */
+                flex-[0_0_50%]
                 sm:flex-[0_0_33%]
-                md:flex-[0_0_22%]  /* plus petit */
+                md:flex-[0_0_22%]
                 px-2 md:px-3
               "
             >
-              {/* CARD */}
               <div className="
                 h-[90px] md:h-[100px]
                 bg-white
@@ -73,7 +94,6 @@ export default function BrandCarousel() {
                 transition-all duration-300
                 group
               ">
-                
                 <div className="relative w-[90px] md:w-[110px] h-[40px] md:h-[55px] grayscale group-hover:grayscale-0 transition">
                   <Image
                     src={src}
@@ -82,7 +102,6 @@ export default function BrandCarousel() {
                     className="object-contain"
                   />
                 </div>
-
               </div>
             </div>
           ))}
