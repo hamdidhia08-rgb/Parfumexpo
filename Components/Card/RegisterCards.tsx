@@ -84,12 +84,15 @@ const RegisterCards = () => {
 <h1
   className={`
     absolute inset-0 flex items-center justify-center
+
     ${
       isArabic
-        ? "text-[50px] sm:text-[70px] md:text-[140px]"  // ✅ AR FIX
-        : "text-[80px] md:text-[140px]"
+        ? "text-[50px] sm:text-[70px] md:text-[140px]" // AR
+        : "text-[48px] sm:text-[64px] md:text-[140px]" // ✅ FIX EN + TR
     }
-    font-bold text-gray-200/40 tracking-widest uppercase
+
+    font-bold text-gray-200/40
+    tracking-widest uppercase
     pointer-events-none select-none
   `}
 >

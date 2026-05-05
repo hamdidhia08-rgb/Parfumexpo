@@ -8,6 +8,7 @@ import { Inter, Cairo } from 'next/font/google';
 import i18n from '@/lib/i18n/i18next';
 import { useTranslation } from 'react-i18next';
 import { usePathname } from 'next/navigation';
+import DrawerLanguageSelector from './DrawerLanguageSelector';
 
 const inter = Inter({ subsets: ['latin'] });
 const cairo = Cairo({ subsets: ['arabic'] });
@@ -147,7 +148,7 @@ export default function MobileDrawer({ open, setOpen, navLinks }: Props) {
 
           {/* LANG */}
           <div className="mt-6 pt-5 border-t border-black/10">
-            <LanguageDropdown scrolled={true} />
+            <DrawerLanguageSelector />
           </div>
 
           {/* BUTTON */}
