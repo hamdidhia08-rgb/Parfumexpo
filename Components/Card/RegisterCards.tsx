@@ -81,14 +81,20 @@ const RegisterCards = () => {
 {/* TITLE */}
 <div className="relative text-center mb-20">
 
-  {/* BACKGROUND BIG TEXT */}
-  <h1 className="absolute inset-0 flex items-center justify-center 
-    text-[80px] md:text-[140px] font-bold 
-    text-gray-200/40 
-    tracking-widest uppercase 
-    pointer-events-none select-none">
-    REGISTER
-  </h1>
+<h1
+  className={`
+    absolute inset-0 flex items-center justify-center
+    ${
+      isArabic
+        ? "text-[50px] sm:text-[70px] md:text-[140px]"  // ✅ AR FIX
+        : "text-[80px] md:text-[140px]"
+    }
+    font-bold text-gray-200/40 tracking-widest uppercase
+    pointer-events-none select-none
+  `}
+>
+  REGISTER
+</h1>
 
   {/* CONTENT */}
   <div className="relative z-10 pt-20 md:pt-45">
