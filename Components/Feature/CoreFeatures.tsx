@@ -87,28 +87,32 @@ const tabs: (keyof ScheduleData)[] = ["day1", "day2", "day3"];
 
       <div className="max-w-6xl mx-auto px-4 md:px-6">
 
-        {/* TABS */}
-        <div className="flex justify-center mb-12 px-4">
-          <div className="flex gap-2 md:gap-3 bg-white/10 p-2 rounded-full border border-white/20 backdrop-blur-xl overflow-x-auto">
+  {/* TABS */}
+<div className="flex justify-center mb-12 px-4">
+  <div className="flex gap-2 md:gap-3 bg-white/10 p-2 rounded-full border border-white/20 backdrop-blur-xl overflow-x-auto">
 
-            {tabs.map((day) => (
-              <button
-                key={day}
-                onClick={() => setActiveTab(day)}
-                className={`
-                  px-5 py-2 text-sm rounded-full font-semibold whitespace-nowrap
-                  transition-all duration-300
-                  ${activeTab === day
-                    ? "bg-white text-black"
-                    : "text-white/70 hover:text-white"}
-                `}
-              >
-                {t(`schedule.days.${day}`)}
-              </button>
-            ))}
+    {tabs.map((day) => (
+      <button
+        key={day}
+        onClick={() => setActiveTab(day)}
+        className={`
+          whitespace-nowrap rounded-full font-semibold transition-all duration-300
 
-          </div>
-        </div>
+          ${isArabic
+            ? "px-3 py-1.5 text-xs"   // 🔥 AR SMALL
+            : "px-5 py-2 text-sm"}   // 🔥 NORMAL
+
+          ${activeTab === day
+            ? "bg-white text-black"
+            : "text-white/70 hover:text-white"}
+        `}
+      >
+        {t(`schedule.days.${day}`)}
+      </button>
+    ))}
+
+  </div>
+</div>
 
         {/* CARDS */}
         <div className="space-y-5">

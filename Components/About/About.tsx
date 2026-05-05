@@ -182,32 +182,48 @@ export default function About() {
 
           </div>
 
-          {/* CTA */}
-          <div className="flex items-center gap-6 mt-10">
+    {/* CTA */}
+<div
+  className={`
+    flex gap-6 mt-10
+    flex-col sm:flex-row        // 🔥 mobile vertical
+    sm:items-center
+    ${isArabic ? "sm:flex-row-reverse" : ""}
+  `}
+>
 
-            <Link href="/about">
-              <button className="flex items-center gap-3 bg-gradient-to-r from-[#FFC400] to-[#E6B800] hover:scale-105 transition text-black px-7 py-3 rounded-full text-sm font-semibold shadow-lg">
-                {t("about.cta")}
-                {isArabic ? <ArrowLeft size={16}/> : <ArrowRight size={16}/>}
-              </button>
-            </Link>
+  {/* BUTTON */}
+  <Link href="/about">
+    <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#FFC400] to-[#E6B800] hover:scale-105 transition text-black px-7 py-3 rounded-full text-sm font-semibold shadow-lg w-full sm:w-auto">
+      {t("about.cta")}
+      {isArabic ? <ArrowLeft size={16}/> : <ArrowRight size={16}/>}
+    </button>
+  </Link>
 
-            <div className="flex items-center gap-3">
-              <div className="bg-[#FFC400] p-3 rounded-full shadow-md">
-                <Phone size={16} className={isArabic ? "scale-x-[-1]" : ""}/>
-              </div>
+  {/* PHONE */}
+  <div
+    className={`
+      flex items-center gap-3
+      ${isArabic ? " text-right" : ""}
+    `}
+  >
+    <div className="bg-[#FFC400] p-3 rounded-full shadow-md">
+      <Phone size={16} className={isArabic ? "scale-x-[-1]" : ""}/>
+    </div>
 
-              <div>
-                <p className="font-semibold text-sm text-[#0f172a]">
-                  {t("about.contact")}
-                </p>
-                <p className="text-sm text-gray-500">
-                  +90 538 507 39 47
-                </p>
-              </div>
-            </div>
+    <div>
+      <p className="font-semibold text-sm text-[#0f172a]">
+        {t("about.contact")}
+      </p>
 
-          </div>
+      {/* 🔥 LTR FIX */}
+      <p dir="ltr" className="text-sm text-gray-500">
+        +90 538 507 39 47
+      </p>
+    </div>
+  </div>
+
+</div>
 
         </div>
 
