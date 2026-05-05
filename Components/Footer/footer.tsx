@@ -83,27 +83,33 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* NAVIGATION */}
-        <div className={`${isArabic ? "text-right" : ""}`}>
-          <h2 className="text-lg font-semibold mb-4">{t("footer.nav")}</h2>
-          <ul className="space-y-2 text-gray-400 text-sm">
-            <li><a href="#" className="hover:text-white transition">{t("footer.home")}</a></li>
-            <li><a href="#" className="hover:text-white transition">{t("footer.register")}</a></li>
-            <li><a href="#" className="hover:text-white transition">{t("footer.about")}</a></li>
-            <li><a href="#" className="hover:text-white transition">{t("footer.contact")}</a></li>
-          </ul>
-        </div>
 
-        {/* SUPPORT */}
-        <div className={`${isArabic ? "text-right" : ""}`}>
-          <h2 className="text-lg font-semibold mb-4">{t("footer.support")}</h2>
-          <ul className="space-y-2 text-gray-400 text-sm">
-            <li><a href="#" className="hover:text-white transition">{t("footer.faq")}</a></li>
-            <li><a href="#" className="hover:text-white transition">{t("footer.shipping")}</a></li>
-            <li><a href="#" className="hover:text-white transition">{t("footer.policy")}</a></li>
-            <li><a href="#" className="hover:text-white transition">{t("footer.terms")}</a></li>
-          </ul>
-        </div>
+  {/* 🔥 WRAPPER MOBILE */}
+  <div className="grid grid-cols-2 gap-6 md:contents">
+
+    {/* NAVIGATION */}
+    <div className={`${isArabic ? "text-right" : ""}`}>
+      <h2 className="text-lg font-semibold mb-4">{t("footer.nav")}</h2>
+      <ul className="space-y-2 text-gray-400 text-sm">
+        <li><a href="#" className="hover:text-white transition">{t("footer.home")}</a></li>
+        <li><a href="#" className="hover:text-white transition">{t("footer.register")}</a></li>
+        <li><a href="#" className="hover:text-white transition">{t("footer.about")}</a></li>
+        <li><a href="#" className="hover:text-white transition">{t("footer.contact")}</a></li>
+      </ul>
+    </div>
+
+    {/* SUPPORT */}
+    <div className={`${isArabic ? "text-right" : ""}`}>
+      <h2 className="text-lg font-semibold mb-4">{t("footer.support")}</h2>
+      <ul className="space-y-2 text-gray-400 text-sm">
+        <li><a href="#" className="hover:text-white transition">{t("footer.faq")}</a></li>
+        <li><a href="#" className="hover:text-white transition">{t("footer.shipping")}</a></li>
+        <li><a href="#" className="hover:text-white transition">{t("footer.policy")}</a></li>
+        <li><a href="#" className="hover:text-white transition">{t("footer.terms")}</a></li>
+      </ul>
+    </div>
+
+  </div>
 
         {/* NEWSLETTER */}
         <div className={`${isArabic ? "text-right" : ""}`}>
