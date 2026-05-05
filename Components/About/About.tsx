@@ -188,7 +188,7 @@ export default function About() {
     flex gap-6 mt-10
     flex-col sm:flex-row        // 🔥 mobile vertical
     sm:items-center
-    ${isArabic ? "sm:flex-row-reverse" : ""}
+    ${isArabic ? "" : ""}
   `}
 >
 
