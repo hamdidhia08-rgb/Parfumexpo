@@ -40,6 +40,7 @@ const Hero = () => {
         <section
           className={`${isArabic ? cairo.className : inter.className} 
           relative 
+          overflow-hidden
           min-h-[98vh] md:min-h-[110vh] 
           w-full flex flex-col items-center justify-start md:justify-end 
           text-white overflow-hidden bg-[#0B0B0B] 
@@ -88,17 +89,18 @@ const Hero = () => {
         </div>
 
            <h1
-              className={`
-                text-[36px] md:text-[74px] mb-5 md:mb-6 max-w-5xl mx-auto tracking-[-0.04em]
-                transition-all duration-1000 delay-500
-                ${isZoomed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-                ${
-                  isArabic
-                    ? 'font-[700] leading-[1.4] md:leading-[1.25]'   // ✅ AR amélioré
-                    : 'font-[800] leading-[1.15] md:leading-[1.05]' // ✅ EXACT ancien
-                }
-              `}
-            >
+  className={`
+    mb-5 md:mb-6 max-w-5xl mx-auto tracking-[-0.04em]
+    transition-all duration-1000 delay-500
+    ${isZoomed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+
+    ${
+      isArabic
+        ? 'text-[28px] sm:text-[32px] md:text-[74px] font-[700] leading-[1.5] md:leading-[1.25]' // 🔥 FIX AR
+        : 'text-[36px] md:text-[74px] font-[800] leading-[1.15] md:leading-[1.05]'
+    }
+  `}
+>
           <span>
             {t('hero.title1')} <br />
             <span className="text-white">{t('hero.title2')} </span>
